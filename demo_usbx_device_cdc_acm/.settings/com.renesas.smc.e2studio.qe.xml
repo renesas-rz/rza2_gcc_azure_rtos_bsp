@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<QE>
+    <Segment id="Project">
+        <Setting id="SrcGeneratedPath" value="src/smc_gen"/>
+    </Segment>
+    <Segment id="Pin">
+        <Setting id="PD_2" value="RIIC1SCL"/>
+        <Setting id="P2_0" value="P2_0"/>
+        <Setting id="P0_1" value="P0_1"/>
+        <Setting id="PD_3" value="RIIC1SDA"/>
+        <Setting id="P8_2" value="P8_2"/>
+        <Setting id="P9_1" value="RxD4"/>
+        <Setting id="P9_0" value="TxD4"/>
+    </Segment>
+    <Segment id="Device">
+        <Setting id="Series" value="RZA"/>
+        <Setting id="Group" value="RZA2M"/>
+        <Setting id="Board" value=""/>
+        <Setting id="PartNo" value="R7S921058"/>
+        <Setting id="PinCount" value="324"/>
+    </Segment>
+    <Segment id="Component">
+        <Setting id="scifa4" value="FIT"/>
+        <Setting id="usbf_cdc0" value="FIT"/>
+        <Setting id="iodefine0" value="FIT"/>
+        <Setting id="cbuffer0" value="FIT"/>
+        <Setting id="intc0" value="FIT"/>
+        <Setting id="mmu0" value="FIT"/>
+        <Setting id="ostm_reserved" value="FIT"/>
+        <Setting id="lpm0" value="FIT"/>
+        <Setting id="os_abstraction_osless0" value="FIT"/>
+        <Setting id="riic1" value="FIT"/>
+        <Setting id="cpg0" value="FIT"/>
+        <Setting id="stb0" value="FIT"/>
+        <Setting id="usbf_basic0" value="FIT"/>
+        <Setting id="cache0" value="FIT"/>
+        <Setting id="gpio0" value="FIT"/>
+    </Segment>
+</QE>

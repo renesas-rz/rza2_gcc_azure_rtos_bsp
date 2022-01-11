@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<QE>
+    <Segment id="Project">
+        <Setting id="SrcGeneratedPath" value="src/smc_gen"/>
+    </Segment>
+    <Segment id="Pin">
+        <Setting id="PD_7" value="PD_7"/>
+        <Setting id="SD1_CLK" value="SD1_CLK"/>
+        <Setting id="P0_3" value="P0_3"/>
+        <Setting id="SD1_CMD" value="SD1_CMD"/>
+        <Setting id="P0_1" value="P0_1"/>
+        <Setting id="PJ_7" value="PJ_7"/>
+        <Setting id="SD1_DAT1" value="SD1_DAT1"/>
+        <Setting id="SD1_DAT0" value="SD1_DAT0"/>
+        <Setting id="SD1_DAT3" value="SD1_DAT3"/>
+        <Setting id="SD1_DAT2" value="SD1_DAT2"/>
+        <Setting id="P9_1" value="RxD4"/>
+        <Setting id="P6_4" value="SD1_CD"/>
+        <Setting id="P9_0" value="TxD4"/>
+    </Segment>
+    <Segment id="Device">
+        <Setting id="Series" value="RZA"/>
+        <Setting id="Group" value="RZA2M"/>
+        <Setting id="Board" value=""/>
+        <Setting id="PartNo" value="R7S921053"/>
+        <Setting id="PinCount" value="324"/>
+    </Segment>
+    <Segment id="Component">
+        <Setting id="stb" value="FIT"/>
+        <Setting id="scifa4" value="FIT"/>
+        <Setting id="cache" value="FIT"/>
+        <Setting id="intc" value="FIT"/>
+        <Setting id="cbuffer0" value="FIT"/>
+        <Setting id="ostm_reserved" value="FIT"/>
+        <Setting id="iodefine" value="FIT"/>
+        <Setting id="sdhi_simplified1" value="FIT"/>
+        <Setting id="mmu" value="FIT"/>
+        <Setting id="runtime_stats_timer" value="FIT"/>
+        <Setting id="os_abstraction_osless" value="FIT"/>
+        <Setting id="cpg" value="FIT"/>
+        <Setting id="gpio" value="FIT"/>
+    </Segment>
+</QE>

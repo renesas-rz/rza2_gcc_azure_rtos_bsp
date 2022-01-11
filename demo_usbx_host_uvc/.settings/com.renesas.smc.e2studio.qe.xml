@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<QE>
+    <Segment id="Project">
+        <Setting id="SrcGeneratedPath" value="src/smc_gen"/>
+    </Segment>
+    <Segment id="Pin">
+        <Setting id="PC_1" value="ET1_TXD2"/>
+        <Setting id="PD_0" value="RIIC0SCL"/>
+        <Setting id="PC_0" value="ET1_TXCLK"/>
+        <Setting id="PC_3" value="ET1_COL"/>
+        <Setting id="PD_2" value="RIIC1SCL"/>
+        <Setting id="PC_2" value="ET1_TXD3"/>
+        <Setting id="PD_1" value="RIIC0SDA"/>
+        <Setting id="PK_1" value="ET1_TXD0"/>
+        <Setting id="PK_0" value="ET1_TXEN"/>
+        <Setting id="PK_3" value="ET1_RXCLK"/>
+        <Setting id="PK_2" value="ET1_TXD1"/>
+        <Setting id="PC_5" value="ET1_RXDV"/>
+        <Setting id="PC_4" value="ET1_TXER"/>
+        <Setting id="PD_3" value="RIIC1SDA"/>
+        <Setting id="PC_7" value="ET1_RXD3"/>
+        <Setting id="PC_6" value="ET1_RXD2"/>
+        <Setting id="PK_4" value="ET1_RXD0"/>
+        <Setting id="P3_1" value="ET1_RXER"/>
+        <Setting id="P3_3" value="ET1_MDC"/>
+        <Setting id="P6_0" value="P6_0"/>
+        <Setting id="P3_2" value="ET1_CRS"/>
+        <Setting id="P2_0" value="P2_0"/>
+        <Setting id="P3_5" value="ET1_RXD1"/>
+        <Setting id="P3_4" value="ET1_MDIO"/>
+        <Setting id="P8_2" value="P8_2"/>
+        <Setting id="P9_1" value="RxD4"/>
+        <Setting id="P9_0" value="TxD4"/>
+    </Segment>
+    <Segment id="Device">
+        <Setting id="Series" value="RZA"/>
+        <Setting id="Group" value="RZA2M"/>
+        <Setting id="Board" value=""/>
+        <Setting id="PartNo" value="R7S921058"/>
+        <Setting id="PinCount" value="324"/>
+    </Segment>
+    <Segment id="Component">
+        <Setting id="stb" value="FIT"/>
+        <Setting id="scifa4" value="FIT"/>
+        <Setting id="cache" value="FIT"/>
+        <Setting id="intc" value="FIT"/>
+        <Setting id="cbuffer0" value="FIT"/>
+        <Setting id="usbh0_hid" value="FIT"/>
+        <Setting id="usbh1_basic" value="FIT"/>
+        <Setting id="ostm_reserved" value="FIT"/>
+        <Setting id="usbh0_basic" value="FIT"/>
+        <Setting id="iodefine" value="FIT"/>
+        <Setting id="mmu" value="FIT"/>
+        <Setting id="usbh1_hid" value="FIT"/>
+        <Setting id="riic1" value="FIT"/>
+        <Setting id="runtime_stats_timer" value="FIT"/>
+        <Setting id="os_abstraction_osless" value="FIT"/>
+        <Setting id="cpg" value="FIT"/>
+        <Setting id="ether_grmango1" value="FIT"/>
+        <Setting id="gpio" value="FIT"/>
+    </Segment>
+</QE>

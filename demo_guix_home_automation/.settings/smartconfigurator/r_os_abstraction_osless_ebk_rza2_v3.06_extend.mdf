@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.12</formatVersion>
+
+    <configuration type="macro">
+      <property id="R_OS_ENABLE_VIRTUAL_CONSOLE" display="Standard I/O device selection" default="0" type="combobox">
+        <option id="R_OS_ENABLE_VIRTUAL_CONSOLE.0" display="Debug UART(SCIFA4)" value="0"/>
+        <option id="R_OS_ENABLE_VIRTUAL_CONSOLE.1" display="Virtual Console(e2studio)" value="1"/>
+        <description>Select standard I/O from "Debug UART" or "Virtual Console".
+
+IMPORTANT NOTICE: Due to various restrictions on the virtual console, the application created for the debug UART may not work as it is.
+See below for details.
+    RZ/A2M Group RZ/A2M Software Package Quick Start Guide(R01QS0027)</description>
+      </property>
+    </configuration>
+</module>

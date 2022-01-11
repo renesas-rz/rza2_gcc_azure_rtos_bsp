@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.11</formatVersion>
+
+    <configuration>
+      <category id="LPM_COMMON" display="Common"/>
+      <category id="LPM_COMMON_STANDBY" display="Common Standby"/>
+      <category id="LPM_SOFTWARE" display="Software Standby"/>
+      <category id="LPM_DEEP" display="Deep Standby"/>
+      <property id="LPM_MODE" display="Mode" default="LPM_MODE_SOFTWARE_STANDBY" type="combobox" category="LPM_COMMON">
+        <option id="LPM_MODE.LPM_MODE_SLEEP" display="Sleep Mode" value="LPM_MODE_SLEEP"/>
+        <option id="LPM_MODE.LPM_MODE_SOFTWARE_STANDBY" display="Software Standby" value="LPM_MODE_SOFTWARE_STANDBY"/>
+        <option id="LPM_MODE.LPM_MODE_DEEP_STANDBY" display="Deep Standby" value="LPM_MODE_DEEP_STANDBY"/>
+        <description>LPM Mode.
+LPM_MODE_SLEEP = Sleep Mode 
+LPM_MODE_SOFTWARE_STANDBY = Software Standby
+LPM_MODE_DEEP_STANDBY = Deep Standby</description>
+      </property>
+      <property id="LPM_PIN_STATUS" display="Pin status in software standby or deep standby" default="LPM_PIN_STATUS_RETAINED" type="combobox" category="LPM_COMMON_STANDBY">
+        <option id="LPM_PIN_STATUS.LPM_PIN_STATUS_RETAINED" display="PIN Status Retained" value="LPM_PIN_STATUS_RETAINED"/>
+        <option id="LPM_PIN_STATUS.LPM_PIN_STATUS_HIZ" display="PIN Status Hi-Z" value="LPM_PIN_STATUS_HIZ"/>
+        <constraint display="The PIN Status Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY or LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY") || ("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY") </constraint>
+        <description>PIN Status Setting.
+LPM_PIN_STATUS_RETAINED = PIN Status Retained
+LPM_PIN_STATUS_HIZ= PIN Status Hi-Z</description>
+      </property>
+      <property id="LPM_SS_IRQ" display="Cancel Factor  :  IRQ7-IRQ0" default="LPM_SSTANDBY_ENABLE_IRQ" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_IRQ.LPM_SSTANDBY_DISABLE_IRQ" display="Disable" value="LPM_SSTANDBY_DISABLE_IRQ"/>
+        <option id="LPM_SS_IRQ.LPM_SSTANDBY_ENABLE_IRQ" display="Enable" value="LPM_SSTANDBY_ENABLE_IRQ"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>IRQ Cancel Factor Setting
+LPM_SSTANDBY_DISABLE_IRQ = Disable
+LPM_SSTANDBY_ENABLE_IRQ = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB0_CC2_RD" display="Cancel Factor  :  USB0_CC2_RD" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB0_CC2_RD.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB0_CC2_RD.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB0_CC2_RD Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB0_CC1_RD" display="Cancel Factor  :  USB0_CC1_RD" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB0_CC1_RD.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB0_CC1_RD.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB0 CC1_RD Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB0_OVRCLR" display="Cancel Factor  :  USB0_OVRCLR" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB0_OVRCLR.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB0_OVRCLR.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB0_OVRCLR Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB0_VBUSIN" display="Cancel Factor  :  USB0_VBUSIN" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB0_VBUSIN.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB0_VBUSIN.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB0_VBUSIN Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB0_DM" display="Cancel Factor  :  USB0_DM" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB0_DM.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB0_DM.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB0_DM Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB0_DP" display="Cancel Factor  :  USB0_DP" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB0_DP.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB0_DP.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB0_DP Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB1_CC2_RD" display="Cancel Factor  :  USB1_CC2_RD" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB1_CC2_RD.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB1_CC2_RD.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB1_CC2_RD Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB1_CC1_RD" display="Cancel Factor  :  USB1_CC1_RD" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB1_CC1_RD.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB1_CC1_RD.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB1 CC1_RD Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB1_OVRCLR" display="Cancel Factor  :  USB1_OVRCLR" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB1_OVRCLR.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB1_OVRCLR.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB1_OVRCLR Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB1_VBUSIN" display="Cancel Factor  :  USB1_VBUSIN" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB1_VBUSIN.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB1_VBUSIN.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB1_VBUSIN Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB1_DM" display="Cancel Factor  :  USB1_DM" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB1_DM.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB1_DM.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB1_DM Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_CANCEL_USB1_DP" display="Cancel Factor  :  USB1_DP" default="LPM_SS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_SOFTWARE">
+        <option id="LPM_SS_CANCEL_USB1_DP.LPM_SS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_SS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_SS_CANCEL_USB1_DP.LPM_SS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_SS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>USB1_DP Cancel Factor Setting
+LPM_SS_CANCEL_FACTOR_DISABLED = Disable
+LPM_SS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_SS_OSC_STAB_TIME" display="Oscillation stabilization time (ms)" default="7" type="textbox" category="LPM_SOFTWARE">
+        <constraint display="The OSC Stabilty Time Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_SOFTWARE_STANDBY")</constraint>
+        <description>OSC Stabilty Time Setting(ms)</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PK_4" display="Cancel Factor  :  PK_4" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PK_4.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PK_4.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PK_4.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PK_4 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PK_2" display="Cancel Factor  :  PK_2" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PK_2.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PK_2.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PK_2.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PK_2 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PJ_5" display="Cancel Factor  :  PJ_5" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PJ_5.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PJ_5.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PJ_5.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PJ_5 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PJ_1" display="Cancel Factor  :  PJ_1" default="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PJ_1.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PJ_1.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PJ_1.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PJ_1 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PH_0" display="Cancel Factor  :  PH_0" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PH_0.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PH_0.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PH_0.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PH_0 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PG_6" display="Cancel Factor  :  PG_6" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PG_6.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PG_6.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PG_6.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PG_6 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_NMI" display="Cancel Factor  :  NMI" default="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_NMI.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_NMI.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_NMI.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>NMI Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_RTC1" display="Cancel Factor  :  RTC1" default="LPM_DS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_RTC1.LPM_DS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_DS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_RTC1.LPM_DS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_DS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>RTC1 Cancel Factor Setting.
+LPM_DS_CANCEL_FACTOR_DISABLED = Disable
+LPM_DS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_DS_CANCEL_RTC0" display="Cancel Factor  :  RTC0" default="LPM_DS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_RTC0.LPM_DS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_DS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_RTC0.LPM_DS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_DS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_SOFTWARE_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>RTC0 Cancel Factor Setting.
+LPM_DS_CANCEL_FACTOR_DISABLED = Disable
+LPM_DS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PG_2" display="Cancel Factor  :  PG_2" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PG_2.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PG_2.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PG_2.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PG_2 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PH_1" display="Cancel Factor  :  PH_1" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PH_1.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PH_1.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PH_1.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PH_1 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_PE_1" display="Cancel Factor  :  PE_1" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_PE_1.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_PE_1.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_PE_1.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>PE_1 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_P6_2" display="Cancel Factor  :  P6_2" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_P6_2.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_P6_2.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_P6_2.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>P6_2 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_P3_3" display="Cancel Factor  :  P3_3" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_P3_3.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_P3_3.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_P3_3.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>P3_3 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_P3_1" display="Cancel Factor  :  P3_1" default="LPM_PIN_CANCEL_FACTOR_DISABLED" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_P3_1.LPM_PIN_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_PIN_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_P3_1.LPM_PIN_CANCEL_FACTOR_FALLING_EDGE" display="Falling Edge" value="LPM_PIN_CANCEL_FACTOR_FALLING_EDGE"/>
+        <option id="LPM_DS_CANCEL_P3_1.LPM_PIN_CANCEL_FACTOR_RISING_EDGE" display="Rising Edge" value="LPM_PIN_CANCEL_FACTOR_RISING_EDGE"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>P3_1 Cancel Factor Setting.
+LPM_PIN_CANCEL_FACTOR_DISABLED = Disable
+LPM_PIN_CANCEL_FACTOR_FALLING_EDGE = Falling Edge
+LPM_PIN_CANCEL_FACTOR_RISING_EDGE = Rising Edge</description>
+      </property>
+      <property id="LPM_DS_CANCEL_USB1_DM" display="Cancel Factor  :  USB1_DM" default="LPM_DS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_USB1_DM.LPM_DS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_DS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_USB1_DM.LPM_DS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_DS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>USB1_DM Cancel Factor Setting.
+LPM_DS_CANCEL_FACTOR_DISABLED = Disable
+LPM_DS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_DS_CANCEL_USB1_DP" display="Cancel Factor  :  USB1_DP" default="LPM_DS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_USB1_DP.LPM_DS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_DS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_USB1_DP.LPM_DS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_DS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>USB1_DP Cancel Factor Setting.
+LPM_DS_CANCEL_FACTOR_DISABLED = Disable
+LPM_DS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_DS_CANCEL_USB0_DM" display="Cancel Factor  :  USB0_DM" default="LPM_DS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_USB0_DM.LPM_DS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_DS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_USB0_DM.LPM_DS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_DS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>USB0_DM Cancel Factor Setting.
+LPM_DS_CANCEL_FACTOR_DISABLED = Disable
+LPM_DS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_DS_CANCEL_USB0_DP" display="Cancel Factor  :  USB0_DP" default="LPM_DS_CANCEL_FACTOR_DISABLED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_CANCEL_USB0_DP.LPM_DS_CANCEL_FACTOR_DISABLED" display="Disable" value="LPM_DS_CANCEL_FACTOR_DISABLED"/>
+        <option id="LPM_DS_CANCEL_USB0_DP.LPM_DS_CANCEL_FACTOR_ENABLED" display="Enable" value="LPM_DS_CANCEL_FACTOR_ENABLED"/>
+        <constraint display="The Cancel Factor Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>USB0_DP Cancel Factor Setting.
+LPM_DS_CANCEL_FACTOR_DISABLED = Disable
+LPM_DS_CANCEL_FACTOR_ENABLED = Enable</description>
+      </property>
+      <property id="LPM_DS_RETENTION_RAM_PAGE3" display="Retention RAM(Page3) status  in deep standby" default="LPM_RETENTION_RAM_NOT_RETAINED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_RETENTION_RAM_PAGE3.LPM_RETENTION_RAM_NOT_RETAINED" display="Not Retained" value="LPM_RETENTION_RAM_NOT_RETAINED"/>
+        <option id="LPM_DS_RETENTION_RAM_PAGE3.LPM_RETENTION_RAM_RETAINED" display="Retained" value="LPM_RETENTION_RAM_RETAINED"/>
+        <constraint display="The Retained Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>Retention RAM Page3 Retained Setting.
+LPM_RETENTION_RAM_NOT_RETAINED = Not Retained
+LPM_RETENTION_RAM_RETAINED = Retained</description>
+      </property>
+      <property id="LPM_DS_RETENTION_RAM_PAGE2" display="Retention RAM(Page2) status  in deep standby" default="LPM_RETENTION_RAM_NOT_RETAINED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_RETENTION_RAM_PAGE2.LPM_RETENTION_RAM_NOT_RETAINED" display="Not Retained" value="LPM_RETENTION_RAM_NOT_RETAINED"/>
+        <option id="LPM_DS_RETENTION_RAM_PAGE2.LPM_RETENTION_RAM_RETAINED" display="Retained" value="LPM_RETENTION_RAM_RETAINED"/>
+        <constraint display="The Retained Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>Retention RAM Page2 Retained Setting.
+LPM_RETENTION_RAM_NOT_RETAINED = Not Retained
+LPM_RETENTION_RAM_RETAINED = Retained</description>
+      </property>
+      <property id="LPM_DS_RETENTION_RAM_PAGE1" display="Retention RAM(Page1) status  in deep standby" default="LPM_RETENTION_RAM_NOT_RETAINED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_RETENTION_RAM_PAGE1.LPM_RETENTION_RAM_NOT_RETAINED" display="Not Retained" value="LPM_RETENTION_RAM_NOT_RETAINED"/>
+        <option id="LPM_DS_RETENTION_RAM_PAGE1.LPM_RETENTION_RAM_RETAINED" display="Retained" value="LPM_RETENTION_RAM_RETAINED"/>
+        <constraint display="The Retained Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>Retention RAM Page1 Retained Setting.
+LPM_RETENTION_RAM_NOT_RETAINED = Not Retained
+LPM_RETENTION_RAM_RETAINED = Retained</description>
+      </property>
+      <property id="LPM_DS_RETENTION_RAM_PAGE0" display="Retention RAM(Page0) status  in deep standby" default="LPM_RETENTION_RAM_RETAINED" type="checkbox" category="LPM_DEEP">
+        <option id="LPM_DS_RETENTION_RAM_PAGE0.LPM_RETENTION_RAM_NOT_RETAINED" display="Not Retained" value="LPM_RETENTION_RAM_NOT_RETAINED"/>
+        <option id="LPM_DS_RETENTION_RAM_PAGE0.LPM_RETENTION_RAM_RETAINED" display="Retained" value="LPM_RETENTION_RAM_RETAINED"/>
+        <constraint display="The Retained Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>Retention RAM Page0 Retained Setting.
+LPM_RETENTION_RAM_NOT_RETAINED = Not Retained
+LPM_RETENTION_RAM_RETAINED = Retained</description>
+      </property>
+      <property id="LPM_DS_OSC_STAB_TIME" display="Oscillation stabilization time (>1ms)" default="7" type="textbox" category="LPM_DEEP">
+        <constraint display="Value must be greater than  1ms" actionOnFail="error">("${LPM_DS_OSC_STAB_TIME}" &gt; 1)</constraint>
+        <constraint display="The OSC Stabilty Time Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>OSC Stabilty Time Setting(>1ms) </description>
+      </property>
+      <property id="LPM_DS_REBOOT_TYPE" display="Reboot Type" default="LPM_REBOOT_TYPE_EXTERNAL_MEMORY_BOOT" type="combobox" category="LPM_DEEP">
+        <option id="LPM_DS_REBOOT_TYPE.LPM_REBOOT_TYPE_EXTERNAL_MEMORY_BOOT" display="EXTERNAL_MEMORY_BOOT(EBUSKEEPE=0)" value="LPM_REBOOT_TYPE_EXTERNAL_MEMORY_BOOT"/>
+        <option id="LPM_DS_REBOOT_TYPE.LPM_REBOOT_TYPE_RAMBOOT_EBUSKEEPE_0" display="RAMBOOT(EBUSKEEPE=0)" value="LPM_REBOOT_TYPE_RAMBOOT_EBUSKEEPE_0"/>
+        <option id="LPM_DS_REBOOT_TYPE.LPM_REBOOT_TYPE_RAMBOOT_EBUSKEEPE_1" display="RAMBOOT(EBUSKEEPE=1)" value="LPM_REBOOT_TYPE_RAMBOOT_EBUSKEEPE_1"/>
+        <constraint display="The Reboot Type Setting cannot be editable when the Mode Setting is not LPM_MODE_DEEP_STANDBY" actionOnFail="disable">("${LPM_MODE}" == "LPM_MODE_DEEP_STANDBY")</constraint>
+        <description>Reboot Type Setting.
+LPM_REBOOT_TYPE_EXTERNAL_MEMORY_BOOT = EXTERNAL_MEMORY_BOOT(EBUSKEEPE=0)
+LPM_REBOOT_TYPE_RAMBOOT_EBUSKEEPE_0 = RAMBOOT(EBUSKEEPE=0)
+LPM_REBOOT_TYPE_RAMBOOT_EBUSKEEPE_1 = RAMBOOT(EBUSKEEPE=1)</description>
+      </property>
+    </configuration>
+</module>

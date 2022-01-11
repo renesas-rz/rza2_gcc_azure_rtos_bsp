@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.12</formatVersion>
+
+    <resourceInfo>
+      <peripheral name="USBH1">
+        <pin name="VBUSEN1"/>
+        <pin name="OVRCUR1"/>
+      </peripheral>
+    </resourceInfo>
+    <configuration type="macro">
+      <property id="BSP_CFG_RTOS_USED" display="Project Type" default="0" type="combobox">
+        <option id="BSP_CFG_RTOS_USED.0" display="OSless project" value="0"/>
+        <option id="BSP_CFG_RTOS_USED.1" display="FreeRTOS project" value="1"/>
+        <description>Select project type (OSless or FreeRTOS)</description>
+      </property>
+      <property id="USBH1_CFG_CLASS" display="Class" default="USBH1_CFG_HMSC_USE" type="combobox">
+        <option id="USBH1_CFG_CLASS.USBH1_CFG_HMSC_USE" display="USBH1_CFG_HMSC_USE" value="USBH1_CFG_HMSC_USE"/>
+        <option id="USBH1_CFG_CLASS.USBH1_CFG_HHID_USE" display="USBH1_CFG_HHID_USE" value="USBH1_CFG_HHID_USE"/>
+        <description>Select class to use </description>
+      </property>
+      <property id="BSP_CFG_BOARD" display="Target Board" default="BSP_CFG_BOARD_RZA2_EVB" type="combobox">
+        <option id="BSP_CFG_BOARD.BSP_CFG_BOARD_RZA2_EVB" display="RZ/A2M Evaluation Board" value="BSP_CFG_BOARD_RZA2_EVB"/>
+        <option id="BSP_CFG_BOARD.BSP_CFG_BOARD_GR_MANGO" display="GR-MANGO" value="BSP_CFG_BOARD_GR_MANGO"/>
+        <description>Select target board</description>
+      </property>
+    </configuration>
+</module>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.11</formatVersion>
+
+    <configuration>
+      <category id="OCTABUS_CS0" display="OctaFlash Access Setting"/>
+      <category id="OCTABUS_CS1" display="OctaRAM Access Setting"/>
+      <category id="OCTABUS_CALIB" display="OctaBus Auto Calibration Setting"/>
+      <property id="OCTABUS_CS0_INIT" display="Controller initialize project assignment of CS0 area" default="OCTABUS_NO_INIT" type="combobox" category="OCTABUS_CS0">
+        <option id="OCTABUS_CS0_INIT.OCTABUS_NO_INIT" display="No initialize at this time" value="OCTABUS_NO_INIT"/>
+        <option id="OCTABUS_CS0_INIT." display="" value=""/>
+        <constraint display="This parameter cannot be editable." actionOnFail="disable">(1 === 0)</constraint>
+        <description>Controller initialize project assignment of CS0 area.
+This parameter cannot be editable.</description>
+      </property>
+      <property id="OCTABUS_CS1_INIT" display="Controller initialize project assignment of CS1 area" default="OCTABUS_INIT_AT_APP" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_INIT.OCTABUS_INIT_AT_APP" display="Initialize at Application project" value="OCTABUS_INIT_AT_APP"/>
+        <constraint display="This parameter cannot be editable." actionOnFail="disable">(1 === 0)</constraint>
+        <description>Controller initialize project assignment of CS1 area.
+This parameter cannot be editable.</description>
+      </property>
+      <property id="OCTABUS_CS1_SIZE" display="Size of the RAM(Byte)" default="0x01000000" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0x3FFFFFF" actionOnFail="error">("${OCTABUS_CS1_SIZE}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_SIZE}" &lt;= 0x3FFFFFFF)</constraint>
+        <description>Set a 30-bit value for the size of memory connected as device 1.
+Examples:
+0x01000000: 16-Mbyte RAM
+0x00800000: 8-Mbyte RAM</description>
+      </property>
+      <property id="OCTABUS_CS1_PC" display="Device1_memory precycle setting" default="OCTABUS_PRECYCLE_DISABLE" type="checkbox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_PC.OCTABUS_PRECYCLE_DISABLE" display="Disable" value="OCTABUS_PRECYCLE_DISABLE"/>
+        <option id="OCTABUS_CS1_PC.OCTABUS_PRECYCLE_ENABLE" display="Enable" value="OCTABUS_PRECYCLE_ENABLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Checked: Enable</description>
+      </property>
+      <property id="OCTABUS_CS1_TTYP" display="Device1_transfer_type setting" default="OCTABUS_TTYPE_DOPI" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_TTYP.OCTABUS_TTYPE_SPI" display="SPI mode" value="OCTABUS_TTYPE_SPI"/>
+        <option id="OCTABUS_CS1_TTYP.OCTABUS_TTYPE_SOPI" display="SOPI mode" value="OCTABUS_TTYPE_SOPI"/>
+        <option id="OCTABUS_CS1_TTYP.OCTABUS_TTYPE_DOPI" display="DOPI mode" value="OCTABUS_TTYPE_DOPI"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>OctaRAM transfer type</description>
+      </property>
+      <property id="OCTABUS_CS1_W_DMY_LEN" display="Device 1 Write dummy length setting" default="5" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0xFF" actionOnFail="error">("${OCTABUS_CS1_W_DMY_LEN}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_W_DMY_LEN}" &lt;= 0xFF)</constraint>
+        <description>Set the dummy length when writing to device 1 in OM_SCLK cycles unit.</description>
+      </property>
+      <property id="OCTABUS_CS1_R_DMY_LEN" display="Device 1 Read dummy length setting" default="5" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0xFF" actionOnFail="error">("${OCTABUS_CS1_R_DMY_LEN}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_R_DMY_LEN}" &lt;= 0xFF)</constraint>
+        <description>Set the dummy length when reading to device 1 in OM_SCLK cycles unit.</description>
+      </property>
+      <property id="OCTABUS_CS1_DELAY" display="Device 1 delay setting" default="0" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable." actionOnFail="disable">(1 === 0)</constraint>
+        <description>These bits specify the delay cycles to be inserted on the input strobe
+signal (OM_DQS) to adjust the timing for latching data during read
+access to device 1 in the DOPI mode [RAM].
+This parameter cannot be editable.</description>
+      </property>
+      <property id="OCTABUS_CS1_DQSENA" display="Device 1 OM_DQS enable counter" default="OCTABUS_DQSENA_7_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_1_CYCLE" display="1 clock cycles" value="OCTABUS_DQSENA_1_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_2_CYCLE" display="2 clock cycles" value="OCTABUS_DQSENA_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_3_CYCLE" display="3 clock cycles" value="OCTABUS_DQSENA_3_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_4_CYCLE" display="4 clock cycles" value="OCTABUS_DQSENA_4_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_5_CYCLE" display="5 clock cycles" value="OCTABUS_DQSENA_5_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_6_CYCLE" display="6 clock cycles" value="OCTABUS_DQSENA_6_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_7_CYCLE" display="7 clock cycles" value="OCTABUS_DQSENA_7_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_8_CYCLE" display="8 clock cycles" value="OCTABUS_DQSENA_8_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_9_CYCLE" display="9 clock cycles" value="OCTABUS_DQSENA_9_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_10_CYCLE" display="10 clock cycles" value="OCTABUS_DQSENA_10_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_11_CYCLE" display="11 clock cycles" value="OCTABUS_DQSENA_11_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_12_CYCLE" display="12 clock cycles" value="OCTABUS_DQSENA_12_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_13_CYCLE" display="13 clock cycles" value="OCTABUS_DQSENA_13_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_14_CYCLE" display="14 clock cycles" value="OCTABUS_DQSENA_14_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_15_CYCLE" display="15 clock cycles" value="OCTABUS_DQSENA_15_CYCLE"/>
+        <option id="OCTABUS_CS1_DQSENA.OCTABUS_DQSENA_16_CYCLE" display="16 clock cycles" value="OCTABUS_DQSENA_16_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>OM_DQS enable counter setting (OM_SCLK units)
+OCTABUS_DQSENA_1_CYCLE: 1 clock cycle
+OCTABUS_DQSENA_2_CYCLE: 2 clock cycles
+OCTABUS_DQSENA_3_CYCLE: 3 clock cycles
+OCTABUS_DQSENA_4_CYCLE: 4 clock cycles
+...
+OCTABUS_DQSENA_16_CYCLE: 16 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_DVRDLO" display="Device 1 select signal pull-down timing setting of read" default="OCTABUS_DVRDLO_DOPI_1P5_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_DOPI_1P5_CYCLE" display="DOPI mode 1.5 clock cycles" value="OCTABUS_DVRDLO_DOPI_1P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_DOPI_2P5_CYCLE" display="DOPI mode 2.5 clock cycles" value="OCTABUS_DVRDLO_DOPI_2P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_DOPI_3P5_CYCLE" display="DOPI mode 3.5 clock cycles" value="OCTABUS_DVRDLO_DOPI_3P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_DOPI_4P5_CYCLE" display="DOPI mode 4.5 clock cycles" value="OCTABUS_DVRDLO_DOPI_4P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_OTHER_2_CYCLE" display="Other mode 2 clock cycles" value="OCTABUS_DVRDLO_OTHER_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_OTHER_3_CYCLE" display="Other mode 3 clock cycles" value="OCTABUS_DVRDLO_OTHER_3_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_OTHER_4_CYCLE" display="Other mode 4 clock cycles" value="OCTABUS_DVRDLO_OTHER_4_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDLO.OCTABUS_DVRDLO_OTHER_5_CYCLE" display="Other mode 5 clock cycles" value="OCTABUS_DVRDLO_OTHER_5_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Indicates the timing between the select signal pull-down to the read
+operation for the device 1.
+Timing definition from OM_CS1# low to the first OM_SCLK high
+DOPI mode
+OCTABUS_DVRDLO_DOPI_1P5_CYCLE: 1.5 clock cycles
+OCTABUS_DVRDLO_DOPI_2P5_CYCLE: 2.5 clock cycles
+OCTABUS_DVRDLO_DOPI_3P5_CYCLE: 3.5 clock cycles
+OCTABUS_DVRDLO_DOPI_4P5_CYCLE: 4.5 clock cycles
+Other mode
+OCTABUS_DVRDLO_OTHER_2_CYCLE: 2 clock cycles
+OCTABUS_DVRDLO_OTHER_3_CYCLE: 3 clock cycles
+OCTABUS_DVRDLO_OTHER_4_CYCLE: 4 clock cycles
+OCTABUS_DVRDLO_OTHER_5_CYCLE: 5 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_DVRDHI" display="Device 1 select signal High timing setting of read" default="OCTABUS_DVRDHI_DOPI_6P5_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_DOPI_6P5_CYCLE" display="DOPI mode 6.5 clock cycles" value="OCTABUS_DVRDHI_DOPI_6P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_DOPI_7P5_CYCLE" display="DOPI mode 7.5 clock cycles" value="OCTABUS_DVRDHI_DOPI_7P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_DOPI_8P5_CYCLE" display="DOPI mode 8.5 clock cycles" value="OCTABUS_DVRDHI_DOPI_8P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_2_CYCLE" display="Other mode 2 clock cycles" value="OCTABUS_DVRDHI_OTHER_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_3_CYCLE" display="Other mode 3 clock cycles" value="OCTABUS_DVRDHI_OTHER_3_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_4_CYCLE" display="Other mode 4 clock cycles" value="OCTABUS_DVRDHI_OTHER_4_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_5_CYCLE" display="Other mode 5 clock cycles" value="OCTABUS_DVRDHI_OTHER_5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_6_CYCLE" display="Other mode 6 clock cycles" value="OCTABUS_DVRDHI_OTHER_6_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_7_CYCLE" display="Other mode 7 clock cycles" value="OCTABUS_DVRDHI_OTHER_7_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_8_CYCLE" display="Other mode 8 clock cycles" value="OCTABUS_DVRDHI_OTHER_8_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDHI.OCTABUS_DVRDHI_OTHER_9_CYCLE" display="Other mode 9 clock cycles" value="OCTABUS_DVRDHI_OTHER_9_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Indicates the timing, from the end of read operation to the select signal is
+pulled up.
+Timing definition from the last OM_SCLK low to OM_CS1# high
+DOPI mode
+OCTABUS_DVRDHI_DOPI_6P5_CYCLE: 6.5 clock cycles
+OCTABUS_DVRDHI_DOPI_7P5_CYCLE: 7.5 clock cycles
+OCTABUS_DVRDHI_DOPI_8P5_CYCLE: 8.5 clock cycles
+Other mode
+OCTABUS_DVRDHI_OTHER_2_CYCLE: 2 clock cycles
+OCTABUS_DVRDHI_OTHER_3_CYCLE: 3 clock cycles
+OCTABUS_DVRDHI_OTHER_4_CYCLE: 4 clock cycles
+OCTABUS_DVRDHI_OTHER_5_CYCLE: 5 clock cycles
+OCTABUS_DVRDHI_OTHER_6_CYCLE: 6 clock cycles
+OCTABUS_DVRDHI_OTHER_7_CYCLE: 7 clock cycles
+OCTABUS_DVRDHI_OTHER_8_CYCLE: 8 clock cycles
+OCTABUS_DVRDHI_OTHER_9_CYCLE: 9 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_DVRDCMD" display="Device 1 Command execution interval of read" default="OCTABUS_DVRDCMD_7_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_2_CYCLE" display="2 clock cycles" value="OCTABUS_DVRDCMD_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_5_CYCLE" display="5 clock cycles" value="OCTABUS_DVRDCMD_5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_7_CYCLE" display="7 clock cycles" value="OCTABUS_DVRDCMD_7_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_9_CYCLE" display="9 clock cycles" value="OCTABUS_DVRDCMD_9_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_11_CYCLE" display="11 clock cycles" value="OCTABUS_DVRDCMD_11_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_13_CYCLE" display="13 clock cycles" value="OCTABUS_DVRDCMD_13_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_15_CYCLE" display="15 clock cycles" value="OCTABUS_DVRDCMD_15_CYCLE"/>
+        <option id="OCTABUS_CS1_DVRDCMD.OCTABUS_DVRDCMD_17_CYCLE" display="17 clock cycles" value="OCTABUS_DVRDCMD_17_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Indicates the timing, between command and command for device 1.
+Timing, until the OM_CS1# signal goes from High to the next Low
+OCTABUS_DVRDCMD_2_CYCLE: 2 clock cycles
+OCTABUS_DVRDCMD_5_CYCLE: 5 clock cycles
+OCTABUS_DVRDCMD_7_CYCLE: 7 clock cycles
+OCTABUS_DVRDCMD_9_CYCLE: 9 clock cycles
+OCTABUS_DVRDCMD_11_CYCLE: 11 clock cycles
+OCTABUS_DVRDCMD_13_CYCLE: 13 clock cycles
+OCTABUS_DVRDCMD_15_CYCLE: 15 clock cycles
+OCTABUS_DVRDCMD_17_CYCLE: 17 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_DVWLO" display="Device 1 select signal pull-down timing setting of write" default="OCTABUS_DVWLO_DOPI_1P5_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_DOPI_1P5_CYCLE" display="DOPI mode 1.5 clock cycles" value="OCTABUS_DVWLO_DOPI_1P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_DOPI_2P5_CYCLE" display="DOPI mode 2.5 clock cycles" value="OCTABUS_DVWLO_DOPI_2P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_DOPI_3P5_CYCLE" display="DOPI mode 3.5 clock cycles" value="OCTABUS_DVWLO_DOPI_3P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_DOPI_4P5_CYCLE" display="DOPI mode 4.5 clock cycles" value="OCTABUS_DVWLO_DOPI_4P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_OTHER_2_CYCLE" display="Other mode 2 clock cycles" value="OCTABUS_DVWLO_OTHER_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_OTHER_3_CYCLE" display="Other mode 3 clock cycles" value="OCTABUS_DVWLO_OTHER_3_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_OTHER_4_CYCLE" display="Other mode 4 clock cycles" value="OCTABUS_DVWLO_OTHER_4_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWLO.OCTABUS_DVWLO_OTHER_5_CYCLE" display="Other mode 5 clock cycles" value="OCTABUS_DVWLO_OTHER_5_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Indicates the timing between the select signal pull-down to the read
+operation for the device 1.
+Timing definition from OM_CS1# low to the first OM_SCLK high
+DOPI mode
+OCTABUS_DVWLO_DOPI_1P5_CYCLE: 1.5 clock cycles
+OCTABUS_DVWLO_DOPI_2P5_CYCLE: 2.5 clock cycles
+OCTABUS_DVWLO_DOPI_3P5_CYCLE: 3.5 clock cycles
+OCTABUS_DVWLO_DOPI_4P5_CYCLE: 4.5 clock cycles
+Other mode
+OCTABUS_DVWLO_OTHER_2_CYCLE: 2 clock cycles
+OCTABUS_DVWLO_OTHER_3_CYCLE: 3 clock cycles
+OCTABUS_DVWLO_OTHER_4_CYCLE: 4 clock cycles
+OCTABUS_DVWLO_OTHER_5_CYCLE: 5 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_DVWHI" display="Device 1 select signal High timing setting of write" default="OCTABUS_DVWHI_DOPI_1P5_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_1P5_CYCLE" display="DOPI mode 1.5 clock cycles" value="OCTABUS_DVWHI_DOPI_1P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_2P5_CYCLE" display="DOPI mode 2.5 clock cycles" value="OCTABUS_DVWHI_DOPI_2P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_3P5_CYCLE" display="DOPI mode 3.5 clock cycles" value="OCTABUS_DVWHI_DOPI_3P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_4P5_CYCLE" display="DOPI mode 4.5 clock cycles" value="OCTABUS_DVWHI_DOPI_4P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_5P5_CYCLE" display="DOPI mode 5.5 clock cycles" value="OCTABUS_DVWHI_DOPI_5P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_6P5_CYCLE" display="DOPI mode 6.5 clock cycles" value="OCTABUS_DVWHI_DOPI_6P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_7P5_CYCLE" display="DOPI mode 7.5 clock cycles" value="OCTABUS_DVWHI_DOPI_7P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_DOPI_8P5_CYCLE" display="DOPI mode 8.5 clock cycles" value="OCTABUS_DVWHI_DOPI_8P5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_2_CYCLE" display="Other mode 2 clock cycles" value="OCTABUS_DVWHI_OTHER_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_3_CYCLE" display="Other mode 3 clock cycles" value="OCTABUS_DVWHI_OTHER_3_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_4_CYCLE" display="Other mode 4 clock cycles" value="OCTABUS_DVWHI_OTHER_4_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_5_CYCLE" display="Other mode 5 clock cycles" value="OCTABUS_DVWHI_OTHER_5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_6_CYCLE" display="Other mode 6 clock cycles" value="OCTABUS_DVWHI_OTHER_6_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_7_CYCLE" display="Other mode 7 clock cycles" value="OCTABUS_DVWHI_OTHER_7_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_8_CYCLE" display="Other mode 8 clock cycles" value="OCTABUS_DVWHI_OTHER_8_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWHI.OCTABUS_DVWHI_OTHER_9_CYCLE" display="Other mode 9 clock cycles" value="OCTABUS_DVWHI_OTHER_9_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Indicates the timing, from the end of read operation to the select signal is
+pulled up.
+Timing definition from the last OM_SCLK low to OM_CS1# high
+DOPI mode
+OCTABUS_DVWHI_DOPI_1P5_CYCLE: 1.5 clock cycles
+OCTABUS_DVWHI_DOPI_2P5_CYCLE: 2.5 clock cycles
+OCTABUS_DVWHI_DOPI_3P5_CYCLE: 3.5 clock cycles
+OCTABUS_DVWHI_DOPI_4P5_CYCLE: 4.5 clock cycles
+OCTABUS_DVWHI_DOPI_5P5_CYCLE: 5.5 clock cycles
+OCTABUS_DVWHI_DOPI_6P5_CYCLE: 6.5 clock cycles
+OCTABUS_DVWHI_DOPI_7P5_CYCLE: 7.5 clock cycles
+OCTABUS_DVWHI_DOPI_8P5_CYCLE: 8.5 clock cycles
+Other mode
+OCTABUS_DVWHI_OTHER_2_CYCLE: 2 clock cycles
+OCTABUS_DVWHI_OTHER_3_CYCLE: 3 clock cycles
+OCTABUS_DVWHI_OTHER_4_CYCLE: 4 clock cycles
+OCTABUS_DVWHI_OTHER_5_CYCLE: 5 clock cycles
+OCTABUS_DVWHI_OTHER_6_CYCLE: 6 clock cycles
+OCTABUS_DVWHI_OTHER_7_CYCLE: 7 clock cycles
+OCTABUS_DVWHI_OTHER_8_CYCLE: 8 clock cycles
+OCTABUS_DVWHI_OTHER_9_CYCLE: 9 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_DVWCMD" display="Device 1 Command execution interval of write" default="OCTABUS_DVWCMD_7_CYCLE" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_2_CYCLE" display="2 clock cycles" value="OCTABUS_DVWCMD_2_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_5_CYCLE" display="5 clock cycles" value="OCTABUS_DVWCMD_5_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_7_CYCLE" display="7 clock cycles" value="OCTABUS_DVWCMD_7_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_9_CYCLE" display="9 clock cycles" value="OCTABUS_DVWCMD_9_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_11_CYCLE" display="11 clock cycles" value="OCTABUS_DVWCMD_11_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_13_CYCLE" display="13 clock cycles" value="OCTABUS_DVWCMD_13_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_15_CYCLE" display="15 clock cycles" value="OCTABUS_DVWCMD_15_CYCLE"/>
+        <option id="OCTABUS_CS1_DVWCMD.OCTABUS_DVWCMD_17_CYCLE" display="17 clock cycles" value="OCTABUS_DVWCMD_17_CYCLE"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_LOADER") || ("${OCTABUS_CS1_INIT}" == "OCTABUS_INIT_AT_APP")</constraint>
+        <description>Indicates the timing, between command and command for device 1.
+Timing, until the OM_CS1# signal goes from High to the next Low
+OCTABUS_DVWCMD_2_CYCLE: 2 clock cycles
+OCTABUS_DVWCMD_5_CYCLE: 5 clock cycles
+OCTABUS_DVWCMD_7_CYCLE: 7 clock cycles
+OCTABUS_DVWCMD_9_CYCLE: 9 clock cycles
+OCTABUS_DVWCMD_11_CYCLE: 11 clock cycles
+OCTABUS_DVWCMD_13_CYCLE: 13 clock cycles
+OCTABUS_DVWCMD_15_CYCLE: 15 clock cycles
+OCTABUS_DVWCMD_17_CYCLE: 17 clock cycles</description>
+      </property>
+      <property id="OCTABUS_CS1_MWCMD1" display="Device 1 Memory map write command 1 setting" default="0x00" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0xFF" actionOnFail="error">("${OCTABUS_CS1_MWCMD1}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MWCMD1}" &lt;= 0xFF)</constraint>
+        <description>Set the memory map write command.
+According to the RAM spec, there are SPI, SOPI, and DOPI mode.
+In SPI mode, the controller will not send command 1.
+In SOPI and DOPI mode, the controller will send command 1 first and
+then send command 0.
+The mode of device 1 is specified by CDSR.DV1TTYP[1:0].</description>
+      </property>
+      <property id="OCTABUS_CS1_MWCMD0" display="Device 1 Memory map write command 0 setting" default="0x00" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0xFF" actionOnFail="error">("${OCTABUS_CS1_MWCMD0}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MWCMD0}" &lt;= 0xFF)</constraint>
+        <description>Set the memory map write command.
+According to the RAM spec, there are SPI, SOPI, and DOPI mode.
+In SPI mode, the controller will send only command 0.
+In SOPI and DOPI mode, the controller will send command 1 first and
+then send command 0.
+The mode of device 1 is specified by CDSR.DV1TTYP[1:0].</description>
+      </property>
+      <property id="OCTABUS_CS1_MRCMD1" display="Device 1 Memory map read command 1 setting" default="0x80" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0xFF" actionOnFail="error">("${OCTABUS_CS1_MRCMD1}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MRCMD1}" &lt;= 0xFF)</constraint>
+        <description>Set the memory map read command.
+According to the RAM spec, there are SPI, SOPI, and DOPI mode.
+In SPI mode, the controller will not send command 1.
+In SOPI and DOPI mode, the controller will send command 1 first and
+then send command 0.
+The mode of device 1 is specified by CDSR.DV1TTYP[1:0].</description>
+      </property>
+      <property id="OCTABUS_CS1_MRCMD0" display="Device 1 Memory map read command 0 setting" default="0x00" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0xFF" actionOnFail="error">("${OCTABUS_CS1_MRCMD0}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MRCMD0}" &lt;= 0xFF)</constraint>
+        <description>Set the memory map read command.
+According to the RAM spec, there are SPI, SOPI, and DOPI mode.
+In SPI mode, the controller will send only command 0.
+In SOPI and DOPI mode, the controller will send command 1 first and
+then send command 0.
+The mode of device 1 is specified by CDSR.DV1TTYP[1:0].</description>
+      </property>
+      <property id="OCTABUS_CS1_MWO" display="Device 1 write order setting" default="OCTABUS_BYTE_ORDER_B1B0B3B2" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_MWO.OCTABUS_BYTE_ORDER_B0B1B2B3" display="Write order is byte0, byte1, byte2, byte3." value="OCTABUS_BYTE_ORDER_B0B1B2B3"/>
+        <option id="OCTABUS_CS1_MWO.OCTABUS_BYTE_ORDER_B1B0B3B2" display="Write order is byte1, byte0, byte3, byte2." value="OCTABUS_BYTE_ORDER_B1B0B3B2"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <description>Device 1 write order setting</description>
+      </property>
+      <property id="OCTABUS_CS1_MWCL" display="Device 1 write command length setting" default="0x02" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0x7" actionOnFail="error">("${OCTABUS_CS1_MWCL}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MWCL}" &lt;= 0x7)</constraint>
+        <description>Set the number of bytes in the write command for device 1.</description>
+      </property>
+      <property id="OCTABUS_CS1_MWAL" display="Device 1 write address length setting" default="0x04" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0x7" actionOnFail="error">("${OCTABUS_CS1_MWAL}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MWAL}" &lt;= 0x7)</constraint>
+        <description>Set the memory map write address byte length for device 1.</description>
+      </property>
+      <property id="OCTABUS_CS1_MRO" display="Device 1 read order setting" default="OCTABUS_BYTE_ORDER_B1B0B3B2" type="combobox" category="OCTABUS_CS1">
+        <option id="OCTABUS_CS1_MRO.OCTABUS_BYTE_ORDER_B0B1B2B3" display="Read order is byte0, byte1, byte2, byte3." value="OCTABUS_BYTE_ORDER_B0B1B2B3"/>
+        <option id="OCTABUS_CS1_MRO.OCTABUS_BYTE_ORDER_B1B0B3B2" display="Read order is byte1, byte0, byte3, byte2." value="OCTABUS_BYTE_ORDER_B1B0B3B2"/>
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <description>Device 1 write order setting</description>
+      </property>
+      <property id="OCTABUS_CS1_MRCL" display="Device 1 read command length setting" default="0x02" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0x7" actionOnFail="error">("${OCTABUS_CS1_MRCL}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MRCL}" &lt;= 0x7)</constraint>
+        <description>Set the number of bytes in the write command for device 1.</description>
+      </property>
+      <property id="OCTABUS_CS1_MRAL" display="Device 1 read address length setting" default="0x04" type="textbox" category="OCTABUS_CS1">
+        <constraint display="This parameter cannot be editable when Controller initialize project assignment of CS1 area is no No initialize in this case." actionOnFail="disable">("${OCTABUS_CS1_INIT}" != "OCTABUS_NO_INIT")</constraint>
+        <constraint display="Value must be in the range 0 - 0x7" actionOnFail="error">("${OCTABUS_CS1_MRAL}" &gt;= 0) &amp;&amp; ("${OCTABUS_CS1_MRAL}" &lt;= 0x7)</constraint>
+        <description>Set the memory map write address byte length for device 1.</description>
+      </property>
+      <property id="OCTABUS_CALIB_ACTR" display="Automatic calibration period" default="132000000" type="textbox" category="OCTABUS_CALIB">
+        <description>Sets the cycle at which automatic calibration is executed.
+If OctaFlash automatic calibration is enabled, set the same value as the automatic calibration period.</description>
+      </property>
+      <property id="OCTABUS_CALIB_ACAR1" display="Device 1 Automatic calibration data address setting" default="0x00FFFFF0" type="textbox" category="OCTABUS_CALIB">
+        <description>Sets the address in OctaRAM for writing to and reading from in auto-calibration of device 1.</description>
+      </property>
+    </configuration>
+</module>
