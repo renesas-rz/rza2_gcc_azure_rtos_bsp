@@ -29,7 +29,7 @@ License
 - **NetXDuo**
 
   <dt>This middware supports the network for IP4, Ip6, TCP, UDP, HTTP, Secure Socket Layer, Crypto libraries, and many more.</dt>
-  <dt>To learn more about [Azure RTOS NetX Duo](https://docs.microsoft.com/en-us/azure/rtos/netx-duo/).</dt>
+  <dt>To learn more about [Azure RTOS NetX Duo](https://docs.microsoft.com/azure/rtos/netx-duo/).</dt>
 
 
 - **Azure IoT**
