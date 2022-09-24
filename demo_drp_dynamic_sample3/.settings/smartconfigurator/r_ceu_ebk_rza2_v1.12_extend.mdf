@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.12</formatVersion>
+
+    <resourceInfo>
+      <peripheral name="CEU">
+        <pin name="VIO_D0"/>
+        <pin name="VIO_D1"/>
+        <pin name="VIO_D2"/>
+        <pin name="VIO_D3"/>
+        <pin name="VIO_D4"/>
+        <pin name="VIO_D5"/>
+        <pin name="VIO_D6"/>
+        <pin name="VIO_D7"/>
+        <pin name="VIO_D8"/>
+        <pin name="VIO_D9"/>
+        <pin name="VIO_D10"/>
+        <pin name="VIO_D11"/>
+        <pin name="VIO_D12"/>
+        <pin name="VIO_D13"/>
+        <pin name="VIO_D14"/>
+        <pin name="VIO_D15"/>
+        <pin name="VIO_CLK"/>
+        <pin name="VIO_VD"/>
+        <pin name="VIO_HD"/>
+        <pin name="VIO_FLD"/>
+      </peripheral>
+    </resourceInfo>
+    <configuration>
+    </configuration>
+</module>

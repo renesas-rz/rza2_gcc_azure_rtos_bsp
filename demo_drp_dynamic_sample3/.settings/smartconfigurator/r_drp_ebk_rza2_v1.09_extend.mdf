@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.12</formatVersion>
+
+    <resourceInfo>
+      <peripheral name="DRP">
+        <pin name="DRP00"/>
+        <pin name="DRP01"/>
+        <pin name="DRP02"/>
+        <pin name="DRP03"/>
+        <pin name="DRP04"/>
+        <pin name="DRP05"/>
+        <pin name="DRP06"/>
+        <pin name="DRP07"/>
+        <pin name="DRP08"/>
+        <pin name="DRP09"/>
+        <pin name="DRP10"/>
+        <pin name="DRP11"/>
+        <pin name="DRP12"/>
+        <pin name="DRP13"/>
+        <pin name="DRP14"/>
+        <pin name="DRP15"/>
+        <pin name="DRP16"/>
+        <pin name="DRP17"/>
+        <pin name="DRP18"/>
+        <pin name="DRP19"/>
+        <pin name="DRP20"/>
+        <pin name="DRP21"/>
+        <pin name="DRP22"/>
+        <pin name="DRP23"/>
+        <pin name="DRP24"/>
+        <pin name="DRP25"/>
+        <pin name="DRP26"/>
+        <pin name="DRP27"/>
+        <pin name="DRP28"/>
+        <pin name="DRP29"/>
+        <pin name="DRP30"/>
+        <pin name="DRP31"/>
+      </peripheral>
+    </resourceInfo>
+    <configuration>
+    </configuration>
+</module>

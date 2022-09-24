@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<QE>
+    <Segment id="Project">
+        <Setting id="SrcGeneratedPath" value="src/smc_gen"/>
+    </Segment>
+    <Segment id="Pin">
+        <Setting id="PA_3" value="LCD0_DATA13"/>
+        <Setting id="PB_2" value="LCD0_DATA20"/>
+        <Setting id="PA_2" value="LCD0_DATA12"/>
+        <Setting id="PB_1" value="LCD0_DATA19"/>
+        <Setting id="PF_0" value="LCD0_DATA8"/>
+        <Setting id="PA_5" value="LCD0_DATA15"/>
+        <Setting id="PB_4" value="LCD0_DATA22"/>
+        <Setting id="PC_3" value="LCD0_TCON4"/>
+        <Setting id="PD_2" value="RIIC1SCL"/>
+        <Setting id="PA_4" value="LCD0_DATA14"/>
+        <Setting id="PB_3" value="LCD0_DATA21"/>
+        <Setting id="PA_1" value="LCD0_DATA11"/>
+        <Setting id="PB_0" value="LCD0_DATA18"/>
+        <Setting id="PA_0" value="LCD0_DATA10"/>
+        <Setting id="PF_6" value="LCD0_DATA2"/>
+        <Setting id="PF_5" value="LCD0_DATA3"/>
+        <Setting id="PF_7" value="LCD0_DATA0"/>
+        <Setting id="PF_2" value="LCD0_DATA6"/>
+        <Setting id="PA_7" value="LCD0_DATA17"/>
+        <Setting id="PF_1" value="LCD0_DATA7"/>
+        <Setting id="PA_6" value="LCD0_DATA16"/>
+        <Setting id="PB_5" value="LCD0_DATA23"/>
+        <Setting id="PC_4" value="LCD0_TCON3"/>
+        <Setting id="PD_3" value="RIIC1SDA"/>
+        <Setting id="PH_2" value="LCD0_DATA1"/>
+        <Setting id="PF_4" value="LCD0_DATA4"/>
+        <Setting id="PF_3" value="LCD0_DATA5"/>
+        <Setting id="PJ_6" value="LCD0_CLK"/>
+        <Setting id="PK_5" value="PK_5"/>
+        <Setting id="PJ_7" value="LCD0_EXTCLK"/>
+        <Setting id="P6_6" value="P6_6"/>
+        <Setting id="P6_5" value="LCD0_TCON5"/>
+        <Setting id="P7_7" value="LCD0_TCON0"/>
+        <Setting id="P7_6" value="LCD0_TCON1"/>
+        <Setting id="P6_7" value="P6_7"/>
+        <Setting id="P8_0" value="LCD0_DATA9"/>
+        <Setting id="P6_4" value="LCD0_TCON6"/>
+        <Setting id="P9_1" value="RxD4"/>
+        <Setting id="P7_2" value="LCD0_TCON2"/>
+        <Setting id="P9_0" value="TxD4"/>
+    </Segment>
+    <Segment id="Device">
+        <Setting id="Series" value="RZA"/>
+        <Setting id="Group" value="RZA2M"/>
+        <Setting id="Board" value=""/>
+        <Setting id="PartNo" value="R7S921058"/>
+        <Setting id="PinCount" value="324"/>
+    </Segment>
+    <Segment id="Component">
+        <Setting id="stb" value="FIT"/>
+        <Setting id="scifa4" value="FIT"/>
+        <Setting id="cache" value="FIT"/>
+        <Setting id="drp" value="FIT"/>
+        <Setting id="intc" value="FIT"/>
+        <Setting id="cbuffer0" value="FIT"/>
+        <Setting id="mipi" value="FIT"/>
+        <Setting id="rvapi" value="FIT"/>
+        <Setting id="ostm_reserved" value="FIT"/>
+        <Setting id="ceu" value="FIT"/>
+        <Setting id="iodefine" value="FIT"/>
+        <Setting id="mmu" value="FIT"/>
+        <Setting id="vdc" value="FIT"/>
+        <Setting id="riic1" value="FIT"/>
+        <Setting id="runtime_stats_timer" value="FIT"/>
+        <Setting id="os_abstraction_osless" value="FIT"/>
+        <Setting id="cpg" value="FIT"/>
+        <Setting id="gpio" value="FIT"/>
+    </Segment>
+</QE>
