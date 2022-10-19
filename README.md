@@ -117,31 +117,31 @@ License
 
 - **demo_cam_and_disp**
 
-  <dt>The Ågdemo_cam_and_dispÅh is a sample project to capture an image from the MIPI camera and display the captured image.</dt>
+  <dt>The "demo_cam_and_disp" is a sample project to capture an image from the MIPI camera and display the captured image.</dt>
   <dt>Also, this sample project adjusts an image from the camera by the CUI (Character User Interface) tool.</dt>
 
 - **demo_drp_basic_sample**
-  <dt>The Ågdemo_drp_basic_sampleÅh is a sample project to check the basic function of DRP. </dt>
+  <dt>The "demo_drp_basic_sample" is a sample project to check the basic function of DRP. </dt>
   <dt>This sample project converts the input image from MIPI camera to grayscale image using DRP Library and outputs to display.</dt>
 
 - **demo_drp_dynamic_sample1**
-  <dt>The Ågdemo_drp_dynamic_sample1Åh is a sample project to check the dynamic loading of DRP.</dt>
+  <dt>The "demo_drp_dynamic_sample1" is a sample project to check the dynamic loading of DRP.</dt>
   <dt>This sample project detects the edges of the input image from MIPI camera by Canny method using DRP Library and outputs to display.</dt>
 
 - **demo_drp_dynamic_sample2**
-  <dt>The Ågdemo_drp_dynamic_sample2Åh is a sample project to check the dynamic loading of DRP.</dt>
+  <dt>The "demo_drp_dynamic_sample2" is a sample project to check the dynamic loading of DRP.</dt>
   <dt>This sample project detects the corners of the input image from MIPI camera by the Harris corner detector using DRP Library and outputs to display.</dt>
 
 - **demo_drp_dynamic_sample3**
-  <dt>The Ågdemo_drp_dynamic_sample3Åh is a sample project to check the dynamic loading of DRP.</dt>
+  <dt>The "demo_drp_dynamic_sample3" is a sample project to check the dynamic loading of DRP.</dt>
   <dt>This sample project performs contour detection using find contours application after detecting the edges of the input image from MIPI camera by Canny method using DRP Library. The results are output to display.</dt>
 
 - **demo_drp_parallel_sample**
-  <dt>The Ågdemo_drp_parallel_sampleÅh is a sample project to check the parallel operation of DRP.</dt>
+  <dt>The "demo_drp_parallel_sample" is a sample project to check the parallel operation of DRP.</dt>
   <dt>This sample project converts the input image from MIPI camera to grayscale image at high-speed using parallel operation function of DRP Library and outputs to display.</dt>
 
 - **demo_drp_simple_isp_sample1**
-  <dt>The Ågdemo_drp_simple_isp_sample1Åh is a sample project to check the ISP (Image Signal Processor) of DRP.</dt>
+  <dt>The "demo_drp_simple_isp_sample1" is a sample project to check the ISP (Image Signal Processor) of DRP.</dt>
   <dt>This sample project corrects the color and noise of the input image from MIPI camera using DRP Library, and the image with high color reproducibility is output to the Display.</dt>
 
 
