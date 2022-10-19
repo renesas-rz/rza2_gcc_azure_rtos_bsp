@@ -11,6 +11,7 @@ License
 - **Threadx** 
   <dt>This is the Microsoft Azure RTOS</dt>
   <dt>To learn more about [Azure RTOS ThreadX](https://docs.microsoft.com/azure/rtos/threadx/).</dt>
+
 - **USBx**
 
   <dt>This is the USB middleware. It support both Host and Device. USB Class support include HID, MSC, CDC,   HUB, UVC, Audio, and printer.</dt>
@@ -52,6 +53,12 @@ License
 - **demo_guix_widget_types**
 
   <dt>The "demo_guix_widget_types" is a sample project of GUIX and USBX.</dt>
+  <dt>Please use the lower part of the GR-MANGO USB connector Type-A port (CN5).</dt>
+  <dt>Also, connect the HDMI port of GR-MANGO to the monitor and check the display.</dt>
+
+- **demo_guix_washing_machine**
+
+  <dt>The "demo_guix_washing_machine" is a sample project of GUIX and USBX.</dt>
   <dt>Please use the lower part of the GR-MANGO USB connector Type-A port (CN5).</dt>
   <dt>Also, connect the HDMI port of GR-MANGO to the monitor and check the display.</dt>
 
@@ -108,6 +115,36 @@ License
   <dt>The IP address of the board is set to 192.168.2.120 and the netmask is set to 255.255.255.0.
       If the operating network environment does not match the set IP address, change the IP address set with nx_ip_create () or change the IP address on your PC side.</dt>
 
+- **demo_cam_and_disp**
+
+  <dt>The Ågdemo_cam_and_dispÅh is a sample project to capture an image from the MIPI camera and display the captured image.</dt>
+  <dt>Also, this sample project adjusts an image from the camera by the CUI (Character User Interface) tool.</dt>
+
+- **demo_drp_basic_sample**
+  <dt>The Ågdemo_drp_basic_sampleÅh is a sample project to check the basic function of DRP. </dt>
+  <dt>This sample project converts the input image from MIPI camera to grayscale image using DRP Library and outputs to display.</dt>
+
+- **demo_drp_dynamic_sample1**
+  <dt>The Ågdemo_drp_dynamic_sample1Åh is a sample project to check the dynamic loading of DRP.</dt>
+  <dt>This sample project detects the edges of the input image from MIPI camera by Canny method using DRP Library and outputs to display.</dt>
+
+- **demo_drp_dynamic_sample2**
+  <dt>The Ågdemo_drp_dynamic_sample2Åh is a sample project to check the dynamic loading of DRP.</dt>
+  <dt>This sample project detects the corners of the input image from MIPI camera by the Harris corner detector using DRP Library and outputs to display.</dt>
+
+- **demo_drp_dynamic_sample3**
+  <dt>The Ågdemo_drp_dynamic_sample3Åh is a sample project to check the dynamic loading of DRP.</dt>
+  <dt>This sample project performs contour detection using find contours application after detecting the edges of the input image from MIPI camera by Canny method using DRP Library. The results are output to display.</dt>
+
+- **demo_drp_parallel_sample**
+  <dt>The Ågdemo_drp_parallel_sampleÅh is a sample project to check the parallel operation of DRP.</dt>
+  <dt>This sample project converts the input image from MIPI camera to grayscale image at high-speed using parallel operation function of DRP Library and outputs to display.</dt>
+
+- **demo_drp_simple_isp_sample1**
+  <dt>The Ågdemo_drp_simple_isp_sample1Åh is a sample project to check the ISP (Image Signal Processor) of DRP.</dt>
+  <dt>This sample project corrects the color and noise of the input image from MIPI camera using DRP Library, and the image with high color reproducibility is output to the Display.</dt>
+
+
 ## Renesas RZ/A2M Microoft Azure SDK Board Configuration
 
 This SDK is set up for the [GR-MANGO](https://www.renesas.com/jp/en/products/gadget-renesas/boards/gr-mango) board with RZ/A2M.
@@ -121,5 +158,5 @@ This SDK is set up for the [GR-MANGO](https://www.renesas.com/jp/en/products/gad
 
 Please refer to the following documents in the DOCS folder.
 
-- r01qs0062jj0100-rza2m.pdf (JPN)
-- r01qs0062ej0100-rza2m.pdf (ENG)
+- r01qs0062jj0101-rza2m.pdf (JPN)
+- r01qs0062ej0101-rza2m.pdf (ENG)
