@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+/***********************************************************************************************************************
+  Purpose: Module Description File (MDF) Example (Schema Version 2.1)
+           This is a description of a sample module configuration file
+***********************************************************************************************************************/
+-->
+<module xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="2.1" xs:noNamespaceSchemaLocation="schema_mdf_2.10.xsd">
+    <fileVersion>1.00</fileVersion>
+    <formatVersion>2.12</formatVersion>
+
+    <resourceInfo>
+      <peripheral name="VDC">
+        <pin name="DV0_CLK"/>
+        <pin name="DV0_VSYNC"/>
+        <pin name="DV0_HSYNC"/>
+        <pin name="DV0_DATA0"/>
+        <pin name="DV0_DATA1"/>
+        <pin name="DV0_DATA2"/>
+        <pin name="DV0_DATA3"/>
+        <pin name="DV0_DATA4"/>
+        <pin name="DV0_DATA5"/>
+        <pin name="DV0_DATA6"/>
+        <pin name="DV0_DATA7"/>
+        <pin name="DV0_DATA8"/>
+        <pin name="DV0_DATA9"/>
+        <pin name="DV0_DATA10"/>
+        <pin name="DV0_DATA11"/>
+        <pin name="DV0_DATA12"/>
+        <pin name="DV0_DATA13"/>
+        <pin name="DV0_DATA14"/>
+        <pin name="DV0_DATA15"/>
+        <pin name="DV0_DATA16"/>
+        <pin name="DV0_DATA17"/>
+        <pin name="DV0_DATA18"/>
+        <pin name="DV0_DATA19"/>
+        <pin name="DV0_DATA20"/>
+        <pin name="DV0_DATA21"/>
+        <pin name="DV0_DATA22"/>
+        <pin name="DV0_DATA23"/>
+        <pin name="LCD0_CLK"/>
+        <pin name="LCD0_DATA0"/>
+        <pin name="LCD0_DATA1"/>
+        <pin name="LCD0_DATA2"/>
+        <pin name="LCD0_DATA3"/>
+        <pin name="LCD0_DATA4"/>
+        <pin name="LCD0_DATA5"/>
+        <pin name="LCD0_DATA6"/>
+        <pin name="LCD0_DATA7"/>
+        <pin name="LCD0_DATA8"/>
+        <pin name="LCD0_DATA9"/>
+        <pin name="LCD0_DATA10"/>
+        <pin name="LCD0_DATA11"/>
+        <pin name="LCD0_DATA12"/>
+        <pin name="LCD0_DATA13"/>
+        <pin name="LCD0_DATA14"/>
+        <pin name="LCD0_DATA15"/>
+        <pin name="LCD0_DATA16"/>
+        <pin name="LCD0_DATA17"/>
+        <pin name="LCD0_DATA18"/>
+        <pin name="LCD0_DATA19"/>
+        <pin name="LCD0_DATA20"/>
+        <pin name="LCD0_DATA21"/>
+        <pin name="LCD0_DATA22"/>
+        <pin name="LCD0_DATA23"/>
+        <pin name="LCD0_TCON0"/>
+        <pin name="LCD0_TCON1"/>
+        <pin name="LCD0_TCON2"/>
+        <pin name="LCD0_TCON3"/>
+        <pin name="LCD0_TCON4"/>
+        <pin name="LCD0_TCON5"/>
+        <pin name="LCD0_TCON6"/>
+        <pin name="LCD0_EXTCLK"/>
+      </peripheral>
+    </resourceInfo>
+    <configuration>
+    </configuration>
+</module>
