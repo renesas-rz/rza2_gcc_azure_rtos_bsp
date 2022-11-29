@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--
+/*******************************************************************************
+* DISCLAIMER
+* This software is supplied by Renesas Electronics Corporation and is only
+* intended for use with Renesas products. No other uses are authorized. This
+* software is owned by Renesas Electronics Corporation and is protected under
+* all applicable laws, including copyright laws.
+* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING
+* THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING BUT NOT
+* LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+* AND NON-INFRINGEMENT. ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.
+* TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEITHER RENESAS
+* ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE
+* FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR
+* ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR ITS AFFILIATES HAVE
+* BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+* Renesas reserves the right, without notice, to make changes to this software
+* and to discontinue the availability of this software. By using this software,
+* you agree to the additional terms and conditions found by accessing the
+* following link:
+* http://www.renesas.com/disclaimer
+* Copyright (C) 2012 - 2014 Renesas Electronics Corporation. All rights reserved.
+*******************************************************************************/
+-->
+<html>
+<head>
+<meta charset="Shift-JIS">
+
+<style type="text/css">  
+<!-- 
+textarea {
+    overflow: hidden;
+}
+-->  
+</style> 
+
+<script type="text/javascript">
+<!--
+var QuantizationTable_Y = [
+     16, 11, 10, 16, 24, 40, 51, 61,
+     12, 12, 14, 19, 26, 58, 60, 55,
+     14, 13, 16, 24, 40, 57, 69, 56,
+     14, 17, 22, 29, 51, 87, 80, 62,
+     18, 22, 37, 56, 68, 109, 103, 77,
+     24, 35, 55, 64, 81, 104, 113, 92,
+     49, 64, 78, 87, 103, 121, 120, 101,
+     72, 92, 95, 98, 112, 100, 103, 99];
+
+var QuantizationTable_C = [
+     17, 18, 24, 47, 99, 99, 99, 99,
+     18, 21, 26, 66, 99, 99, 99, 99,
+     24, 26, 56, 99, 99, 99, 99, 99,
+     47, 66, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99];
+
+function updateData()
+{
+    var quality  = parseInt(document.update.quality.value);
+    var quality_S;
+    var loopCounter;
+    var string_array;
+
+    /* select the calc base depends on the quality */
+    if ( quality < 50){
+        quality_S = 5000 / quality;
+    } else {
+        quality_S = 200 - 2 * (quality);
+    }
+
+    /* header for each array */
+    var string_Y = "const uint8_t QuantizationTable_Y[QUANTIZATION_TABLE_SIZE] = {";
+    var string_C = "const uint8_t QuantizationTable_C[QUANTIZATION_TABLE_SIZE] = {";
+
+    string_array = "/* Quality: IJG"+ quality + " */\n\n" + string_Y;
+    /* procedure of Y */
+    for (loopCounter = 0; loopCounter < 64; loopCounter++){
+        /* multiply the ratio of quality */
+        var valueY = ( quality_S * QuantizationTable_Y[loopCounter] + 50)/100;
+
+        /* round off the result */
+        valueY = Math.floor(valueY);
+
+        /* crip the 8bit data */
+        valueY = (valueY < 1 ? 1 : valueY > 255 ? 255 : valueY);
+
+        /* fit the column */
+        if (valueY < 10){
+            valueY = "  " + valueY;
+        } else if (valueY < 100){
+            valueY = " " + valueY;
+        }
+
+        /* create quantization table */
+        if (loopCounter % 8 == 0){
+            /* first column's operation */
+            string_array = string_array + "\n    " + valueY + ",";
+        } else if (loopCounter == 63){
+            /* the last data's operation (comma is not need) */
+            string_array = string_array + valueY + "\n};";
+        } else {
+            string_array = string_array + valueY + ",";
+        }
+    }
+
+    string_array = string_array + "\n\n" + string_C;
+
+
+    for (loopCounter = 0; loopCounter < 64; loopCounter++){
+        /* multiply the ratio of quality */
+        var valueC = ( quality_S * QuantizationTable_C[loopCounter] + 50)/100;
+
+        /* round off the result */
+        valueC = Math.floor(valueC);
+
+        /* crip the 8bit data */
+        valueC = (valueC < 1 ? 1 : valueC > 255 ? 255 : valueC);
+
+        /* fit the column */
+        if (valueC < 10){
+            valueC = "  " + valueC;
+        } else if (valueC < 100){
+            valueC = " " + valueC;
+        }
+
+        /* create quantization table */
+        if (loopCounter % 8 == 0){
+            /* first column's operation */
+            string_array = string_array + "\n    " + valueC + ",";
+        } else if (loopCounter == 63){
+            /* the last data's operation (comma is not need) */
+            string_array = string_array + valueC + "\n};";
+        } else {
+            string_array = string_array + valueC + ",";
+        }
+    }
+    
+    /* change the textare to new strings */
+    document.update.output.value = string_array;
+
+    /* textarea focuses */
+    document.update.output.focus();
+
+    /* select textarea's strings */
+    document.update.output.select();
+}
+
+-->
+</script>
+</head>
+
+<body>
+<form method="post" name="update" onSubmit="updateData(); return false;">
+quality(50 to 100): <input type="text" name="quality" size="8" value="50">
+<input type="submit" value="Generate Table">
+<span style="font-size: x-small;"> * based on IJG specifications </span>
+<hr>
+table: <br>
+<textarea name="output" rows="25" cols="65">
+/* Quality: IJG50 */
+
+const uint8_t QuantizationTable_Y[QUANTIZATION_TABLE_SIZE] = {
+     16, 11, 10, 16, 24, 40, 51, 61,
+     12, 12, 14, 19, 26, 58, 60, 55,
+     14, 13, 16, 24, 40, 57, 69, 56,
+     14, 17, 22, 29, 51, 87, 80, 62,
+     18, 22, 37, 56, 68,109,103, 77,
+     24, 35, 55, 64, 81,104,113, 92,
+     49, 64, 78, 87,103,121,120,101,
+     72, 92, 95, 98,112,100,103, 99
+};
+
+const uint8_t QuantizationTable_C[QUANTIZATION_TABLE_SIZE] = {
+     17, 18, 24, 47, 99, 99, 99, 99,
+     18, 21, 26, 66, 99, 99, 99, 99,
+     24, 26, 56, 99, 99, 99, 99, 99,
+     47, 66, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99,
+     99, 99, 99, 99, 99, 99, 99, 99
+};
+</textarea>
+</form>
+
+<hr>
+<span style="font-size: x-small;"> 
+the quality that less than 50 may different from IJG value.
+</span>
+
+<p style="text-align: center;">
+<img src="data:image/gif;base64,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"/>
+</p>
+
+</body>
+</html>
