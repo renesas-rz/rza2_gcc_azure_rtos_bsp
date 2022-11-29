@@ -128,6 +128,11 @@ extern   "C" {
 #define NX_DHCP_TIME_INTERVAL          (1 * NX_IP_PERIODIC_RATE)
 #endif
 
+/* Define the max number of user request parameter.
+   Subnet mask, gateway and dns server options are added in _nx_dhcp_request_parameters arrary by default.  */
+#ifndef NX_DHCP_CLIENT_MAX_USER_REQUEST_PARAMETER
+#define NX_DHCP_CLIENT_MAX_USER_REQUEST_PARAMETER 4
+#endif /* NX_DHCP_CLIENT_MAX_USER_REQUEST_PARAMETER */
 
 /* Define the size of DHCP options buffer.  */
 /* A DHCP client must be prepared to receive DHCP messages with an 'options' field of 
@@ -466,6 +471,10 @@ typedef struct NX_DHCP_STRUCT
     NX_DHCP_INTERFACE_RECORD 
                     nx_dhcp_interface_record[NX_DHCP_CLIENT_MAX_RECORDS];  
                                                 /* Record of DHCP Client state on specific interface        */
+    UCHAR           nx_dhcp_user_request_parameter[NX_DHCP_CLIENT_MAX_USER_REQUEST_PARAMETER];
+                                                /* User request parameter                                   */
+    UINT            nx_dhcp_user_request_parameter_size;
+                                                /* User request parameter size                              */
 
 #ifdef NX_DHCP_CLIENT_SEND_MAX_DHCP_MESSAGE_OPTION
     ULONG           nx_dhcp_max_dhcp_message_size;
@@ -525,6 +534,7 @@ typedef struct NX_DHCP_STRUCT
 #define nx_dhcp_stop                                    _nx_dhcp_stop
 #define nx_dhcp_server_address_get                      _nx_dhcp_server_address_get
 #define nx_dhcp_state_change_notify                     _nx_dhcp_state_change_notify
+#define nx_dhcp_user_option_request                     _nx_dhcp_user_option_request
 #define nx_dhcp_user_option_retrieve                    _nx_dhcp_user_option_retrieve
 #define nx_dhcp_user_option_convert                     _nx_dhcp_user_option_convert
 #define nx_dhcp_user_option_add_callback_set            _nx_dhcp_user_option_add_callback_set
@@ -572,6 +582,7 @@ typedef struct NX_DHCP_STRUCT
 #define nx_dhcp_stop                                    _nxe_dhcp_stop
 #define nx_dhcp_server_address_get                      _nxe_dhcp_server_address_get
 #define nx_dhcp_state_change_notify                     _nxe_dhcp_state_change_notify
+#define nx_dhcp_user_option_request                     _nxe_dhcp_user_option_request
 #define nx_dhcp_user_option_retrieve                    _nxe_dhcp_user_option_retrieve
 #define nx_dhcp_user_option_convert                     _nxe_dhcp_user_option_convert
 #define nx_dhcp_user_option_add_callback_set            _nxe_dhcp_user_option_add_callback_set
@@ -619,6 +630,7 @@ UINT        nx_dhcp_start(NX_DHCP *dhcp_ptr);
 UINT        nx_dhcp_stop(NX_DHCP *dhcp_ptr);
 UINT        nx_dhcp_server_address_get(NX_DHCP *dhcp_ptr, ULONG *server_address);
 UINT        nx_dhcp_state_change_notify(NX_DHCP *dhcp_ptr, VOID (*dhcp_state_change_notify)(NX_DHCP *dhcp_ptr, UCHAR new_state));
+UINT        nx_dhcp_user_option_request(NX_DHCP *dhcp_ptr, UINT option_code);
 UINT        nx_dhcp_user_option_retrieve(NX_DHCP *dhcp_ptr, UINT request_option, UCHAR *destination_ptr, UINT *destination_size);
 ULONG       nx_dhcp_user_option_convert(UCHAR *source_ptr);
 UINT        nx_dhcp_user_option_add_callback_set(NX_DHCP *dhcp_ptr, UINT (*dhcp_user_option_add)(NX_DHCP *dhcp_ptr, UINT iface_index, UINT message_type, UCHAR *user_option_ptr, UINT *user_option_length));
@@ -678,6 +690,8 @@ UINT        _nxe_dhcp_server_address_get(NX_DHCP *dhcp_ptr, ULONG *server_addres
 UINT        _nx_dhcp_server_address_get(NX_DHCP *dhcp_ptr, ULONG *server_address);
 UINT        _nxe_dhcp_state_change_notify(NX_DHCP *dhcp_ptr,  VOID (*dhcp_state_change_notify)(NX_DHCP *dhcp_ptr, UCHAR new_state));
 UINT        _nx_dhcp_state_change_notify(NX_DHCP *dhcp_ptr, VOID (*dhcp_state_change_notify)(NX_DHCP *dhcp_ptr, UCHAR new_state));
+UINT        _nxe_dhcp_user_option_request(NX_DHCP *dhcp_ptr, UINT option_code);
+UINT        _nx_dhcp_user_option_request(NX_DHCP *dhcp_ptr, UINT option_code);
 UINT        _nxe_dhcp_user_option_retrieve(NX_DHCP *dhcp_ptr, UINT request_option, UCHAR *destination_ptr, UINT *destination_size);
 UINT        _nx_dhcp_user_option_retrieve(NX_DHCP *dhcp_ptr, UINT request_option, UCHAR *destination_ptr, UINT *destination_size); 
 ULONG       _nxe_dhcp_user_option_convert(UCHAR *source_ptr);

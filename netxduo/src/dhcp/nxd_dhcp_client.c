@@ -4312,6 +4312,151 @@ UINT    status;
     return(NX_DHCP_NO_INTERFACES_ENABLED);
 }
 
+/**************************************************************************/ 
+/*                                                                        */ 
+/*  FUNCTION                                               RELEASE        */ 
+/*                                                                        */ 
+/*    _nxe_dhcp_user_option_request                       PORTABLE C      */ 
+/*                                                           6.1.8        */
+/*  AUTHOR                                                                */
+/*                                                                        */
+/*    Yuxin Zhou, Microsoft Corporation                                   */
+/*                                                                        */
+/*  DESCRIPTION                                                           */ 
+/*                                                                        */ 
+/*    This function checks for errors in the DHCP user option function    */ 
+/*    call.                                                               */ 
+/*                                                                        */ 
+/*  INPUT                                                                 */ 
+/*                                                                        */ 
+/*    dhcp_ptr                              Pointer to DHCP instance      */ 
+/*    option_code                           Option code                   */ 
+/*                                                                        */ 
+/*  OUTPUT                                                                */ 
+/*                                                                        */ 
+/*    status                                Completion status             */
+/*    NX_PTR_ERROR                          Invalid pointer input         */
+/*                                                                        */ 
+/*  CALLS                                                                 */ 
+/*                                                                        */ 
+/*    _nx_dhcp_user_option_request          Actual DHCP user option       */ 
+/*                                            request function call       */ 
+/*                                                                        */ 
+/*  CALLED BY                                                             */ 
+/*                                                                        */ 
+/*    Application Code                                                    */ 
+/*                                                                        */ 
+/*  RELEASE HISTORY                                                       */ 
+/*                                                                        */ 
+/*    DATE              NAME                      DESCRIPTION             */
+/*                                                                        */
+/*  08-02-2021     Yuxin Zhou               Initial Version 6.1.8         */
+/*                                                                        */
+/**************************************************************************/
+UINT  _nxe_dhcp_user_option_request(NX_DHCP *dhcp_ptr, UINT option_code)
+{
+
+UINT    status;
+
+
+    /* Check for invalid input pointer.  */
+    if ((dhcp_ptr == NX_NULL) || (dhcp_ptr -> nx_dhcp_id != NX_DHCP_ID))
+        return(NX_PTR_ERROR);
+
+    /* Check for appropriate caller.  */
+    NX_THREADS_ONLY_CALLER_CHECKING
+
+    /* Call actual DHCP interface user option request service.  */
+    status =  _nx_dhcp_user_option_request(dhcp_ptr, option_code);
+
+    /* Return status.  */
+    return(status);
+}
+
+/**************************************************************************/ 
+/*                                                                        */ 
+/*  FUNCTION                                               RELEASE        */ 
+/*                                                                        */ 
+/*    _nx_dhcp_user_option_request                        PORTABLE C      */ 
+/*                                                           6.1.8        */
+/*  AUTHOR                                                                */
+/*                                                                        */
+/*    Yuxin Zhou, Microsoft Corporation                                   */
+/*                                                                        */
+/*  DESCRIPTION                                                           */ 
+/*                                                                        */ 
+/*    This function requests the additional user option.                  */ 
+/*                                                                        */ 
+/*  INPUT                                                                 */ 
+/*                                                                        */ 
+/*    dhcp_ptr                              Pointer to DHCP instance      */ 
+/*    option_code                           Option code                   */ 
+/*                                                                        */ 
+/*  OUTPUT                                                                */ 
+/*                                                                        */ 
+/*    status                                Completion status             */ 
+/*                                                                        */ 
+/*  CALLS                                                                 */ 
+/*                                                                        */ 
+/*    tx_mutex_get                          Get the DHCP mutex            */ 
+/*    tx_mutex_put                          Release the DHCP mutex        */ 
+/*                                                                        */ 
+/*  CALLED BY                                                             */ 
+/*                                                                        */ 
+/*    Application Code                                                    */ 
+/*                                                                        */ 
+/*  RELEASE HISTORY                                                       */ 
+/*                                                                        */ 
+/*    DATE              NAME                      DESCRIPTION             */
+/*                                                                        */
+/*  08-02-2021     Yuxin Zhou               Initial Version 6.1.8         */
+/*                                                                        */
+/**************************************************************************/
+UINT  _nx_dhcp_user_option_request(NX_DHCP *dhcp_ptr, UINT option_code)
+{
+UINT i;
+
+
+    /* Obtain DHCP Client protection mutex. */
+    tx_mutex_get(&(dhcp_ptr -> nx_dhcp_mutex), TX_WAIT_FOREVER);
+
+    /* Check if the default option array already has it.  */
+    for (i = 0; i < NX_DHCP_REQUEST_PARAMETER_SIZE; i++)
+    {
+        if (_nx_dhcp_request_parameters[i] == option_code)
+        {
+            tx_mutex_put(&(dhcp_ptr -> nx_dhcp_mutex));
+            return(NX_DUPLICATED_ENTRY);
+        }
+    }
+
+    /* Check if the user option array already has it.  */
+    for (i = 0; i < dhcp_ptr -> nx_dhcp_user_request_parameter_size; i++)
+    {
+        if (dhcp_ptr -> nx_dhcp_user_request_parameter[i] == option_code)
+        {
+            tx_mutex_put(&(dhcp_ptr -> nx_dhcp_mutex));
+            return(NX_DUPLICATED_ENTRY);
+        }
+    }
+
+    /* Check if there is space to add option.  */
+    if (dhcp_ptr -> nx_dhcp_user_request_parameter_size >= NX_DHCP_CLIENT_MAX_USER_REQUEST_PARAMETER)
+    {
+        tx_mutex_put(&(dhcp_ptr -> nx_dhcp_mutex));
+        return(NX_NO_MORE_ENTRIES);
+    }
+
+    /* Add the option.  */
+    dhcp_ptr -> nx_dhcp_user_request_parameter[dhcp_ptr -> nx_dhcp_user_request_parameter_size++] = (UCHAR)option_code;
+
+    /* Release the DHCP mutex.  */
+    tx_mutex_put(&(dhcp_ptr -> nx_dhcp_mutex));
+
+    /* Return success.  */
+    return(NX_SUCCESS);
+}
+
 
 /**************************************************************************/ 
 /*                                                                        */ 

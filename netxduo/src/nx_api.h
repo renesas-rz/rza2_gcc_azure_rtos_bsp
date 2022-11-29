@@ -83,6 +83,12 @@ extern   "C" {
 
 #endif
 
+/* Define Link Driver constants.  */
+#define NX_LINK_GET_INTERFACE_TYPE                 28
+/* Define the interface type.  */
+#define NX_INTERFACE_TYPE_OTHER                    1
+#define NX_INTERFACE_TYPE_LORAWAN                  6
+
 
 /* Disable warning of parameter not used. */
 #ifndef NX_PARAMETER_NOT_USED

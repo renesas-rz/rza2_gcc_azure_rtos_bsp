@@ -721,9 +721,9 @@
    to NetX Duo API for notifying the application of socket events, such as TCP connection and disconnect
    completion.  These extended notify functions are mainly used by the BSD wrapper. The default is this
    feature is disabled.  */
-/*
+
 #define NX_ENABLE_EXTENDED_NOTIFY_SUPPORT
-*/
+
 
 /* Defined, ASSERT is disabled. The default is enabled. */
 /*
@@ -751,6 +751,21 @@
 /*
 #define NX_MAX_STRING_LENGTH                                1024
 */
+
+#ifndef NX_SECURE_ENABLE
+#define NX_SECURE_ENABLE
+#endif
+
+#ifndef NXD_MQTT_CLOUD_ENABLE
+#define NXD_MQTT_CLOUD_ENABLE
+#endif
+
+#ifndef NX_WEB_HTTPS_ENABLE
+#define NX_WEB_HTTPS_ENABLE
+#endif
+
+/* Azure IoT Configuration */
+#define NX_AZURE_DISABLE_IOT_SECURITY_MODULE /* The Azure IoT Security Module redefines a reserved symbol and cannot be supported at this time. */
 
 #endif
 

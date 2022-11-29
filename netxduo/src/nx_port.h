@@ -50,6 +50,7 @@
 #define NX_PORT_H
 
 /* Determine if the optional NetX user define file should be used.  */
+#define NX_INCLUDE_USER_DEFINE_FILE
 
 #ifdef NX_INCLUDE_USER_DEFINE_FILE
 
@@ -204,6 +205,10 @@ CHAR                            _nx_version_id[] =
                                     "Copyright (c) Microsoft Corporation. All rights reserved.  *  NetX Duo Cortex-A9/GNU Version 6.1 *";
 #else
 extern  CHAR                    _nx_version_id[];
+#endif
+
+#ifndef NX_AZURE_IOT_HUB_CLIENT_TOKEN_CONNECTION_TIMEOUT
+#define NX_AZURE_IOT_HUB_CLIENT_TOKEN_CONNECTION_TIMEOUT (86400)
 #endif
 
 #endif
