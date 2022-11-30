@@ -148,6 +148,21 @@ License
   <dt>The "demo_jpeg_codec_sample" is a sample project of JCU (JPEG codec unit).</dt>
   <dt>This sample project decodes JPEG compressed image and encodes to JPEG compressed image using JCU.</dt>
 
+## Azure RTOS IoT Embedded SDK Samples
+
+Note:  
+The following projects will be samples to access Azure IoT.  
+["Azure Certified Device"](https://devicecatalog.azure.com/ "Azure Certified Devices Catalog") certification is in progress with project "sample_azure_iot_embedded_sdk".  
+
+- **sample_azure_iot_embedded_sdk**
+  <dt>The "sample_azure_iot_embedded_sdk" is a sample project to connect to Azure IoT Hub using Azure IoT Middleware for Azure RTOS.</dt>
+
+- **sample_azure_iot_embedded_sdk_pnp**
+  <dt>The "sample_azure_iot_embedded_sdk_pnp" is a sample project to connect to Azure IoT Hub using Azure IoT Middleware for Azure RTOS via IoT Plug and Play.</dt>
+  
+- **sample_pnp_temperature_controller**
+  <dt>The "sample_pnp_temperature_controller" is a sample project with IoT Plug and Play using multiple components.</dt>
+
 ## Renesas RZ/A2M Microoft Azure SDK Board Configuration
 
 This SDK is set up for the [GR-MANGO](https://www.renesas.com/jp/en/products/gadget-renesas/boards/gr-mango) board with RZ/A2M.
