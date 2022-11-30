@@ -144,6 +144,9 @@ License
   <dt>The "demo_drp_simple_isp_sample1" is a sample project to check the ISP (Image Signal Processor) of DRP.</dt>
   <dt>This sample project corrects the color and noise of the input image from MIPI camera using DRP Library, and the image with high color reproducibility is output to the Display.</dt>
 
+- **demo_jpeg_codec_sample**
+  <dt>The "demo_jpeg_codec_sample" is a sample project of JCU (JPEG codec unit).</dt>
+  <dt>This sample project decodes JPEG compressed image and encodes to JPEG compressed image using JCU.</dt>
 
 ## Renesas RZ/A2M Microoft Azure SDK Board Configuration
 
