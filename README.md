@@ -176,5 +176,5 @@ This SDK is set up for the [GR-MANGO](https://www.renesas.com/jp/en/products/gad
 
 Please refer to the following documents in the DOCS folder.
 
-- r01qs0062jj0101-rza2m.pdf (JPN)
-- r01qs0062ej0101-rza2m.pdf (ENG)
+- r01qs0062jj0102-rza2m-quick-guide-grmango-gcc.pdf (JPN)
+- r01qs0062ej0102-rza2m-quick-guide-grmango-gcc.pdf (ENG)
