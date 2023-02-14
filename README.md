@@ -151,8 +151,8 @@ License
 ## Azure RTOS IoT Embedded SDK Samples
 
 Note:  
-The following projects will be samples to access Azure IoT.  
-["Azure Certified Device"](https://devicecatalog.azure.com/ "Azure Certified Devices Catalog") certification is in progress with project "sample_azure_iot_embedded_sdk".  
+The following projects are sample projects to access Azure IoT.  
+GR-MANGO is certified ["Azure Certified Device"](https://learn.microsoft.com/en-us/azure/certification/program-requirements-azure-certified-device "Azure Certified Devices") and ["IoT Plug and Play"](https://learn.microsoft.com/en-us/azure/certification/program-requirements-pnp "IoT Plug and Play") certification, and is listed in ["Azure Certified Device catalog"](https://devicecatalog.azure.com/ "Azure Certified Device catalog").  
 
 - **sample_azure_iot_embedded_sdk**
   <dt>The "sample_azure_iot_embedded_sdk" is a sample project to connect to Azure IoT Hub using Azure IoT Middleware for Azure RTOS.</dt>
