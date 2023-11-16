@@ -1,0 +1,2 @@
+src/user_prog/tx_initialize_low_level.o: \
+ ../src/user_prog/tx_initialize_low_level.S

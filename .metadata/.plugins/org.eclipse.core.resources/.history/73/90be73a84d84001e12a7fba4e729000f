@@ -1,0 +1,8 @@
+src/renesas/application/r_usb_mmu_pa_to_va.o: \
+ ../src/renesas/application/r_usb_mmu_pa_to_va.c \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/src/renesas/application/inc/main.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/src/renesas/application/inc/main.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h:

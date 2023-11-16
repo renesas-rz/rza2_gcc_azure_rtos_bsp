@@ -1,0 +1,89 @@
+src/user_prog/sample_azure_iot_embedded_sdk_connect.o: \
+ ../src/user_prog/sample_azure_iot_embedded_sdk_connect.c \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\nx_azure_iot_hub_client.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\nx_azure_iot.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\az_log.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\az_result.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\_az_cfg_prefix.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\_az_cfg.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\_az_cfg_suffix.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\az_span.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\iot\az_iot_common.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_user.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_trace.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\cloud\nx_cloud.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\dns\nxd_dns.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_udp.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_ipv4.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_ipv6.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\mqtt\nxd_mqtt_client.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto_const.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_x509.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\iot\az_iot_hub_client.h
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\nx_azure_iot_hub_client.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\nx_azure_iot.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\az_log.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\az_result.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\_az_cfg_prefix.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\_az_cfg.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\_az_cfg_suffix.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\core\az_span.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\iot\az_iot_common.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_user.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_trace.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\cloud\nx_cloud.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\dns\nxd_dns.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_udp.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_ipv4.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_ipv6.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\mqtt\nxd_mqtt_client.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto_const.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_x509.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\azure_iot\azure-sdk-for-c\sdk\inc\azure\iot\az_iot_hub_client.h:

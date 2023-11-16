@@ -1,0 +1,26 @@
+generate/sc_drivers/r_usbh0/basic/src/r_usbh0_hdriver.o: \
+ ../generate/sc_drivers/r_usbh0/basic/src/r_usbh0_hdriver.c \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/src/inc/r_usbh0_basic_local.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/r_usbh0_basic_if.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/userdef/r_usbh0_basic_config.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/r_usbh0_rtos_config.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/inc/r_usbh0_basic_drv_sc_cfg.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/src/inc/r_usbh0_hhci.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/src/inc/r_usbh0_basic_local.h
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/src/inc/r_usbh0_basic_local.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/r_usbh0_basic_if.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/userdef/r_usbh0_basic_config.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/r_usbh0_rtos_config.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/inc/r_usbh0_basic_drv_sc_cfg.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/src/inc/r_usbh0_hhci.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/sc_drivers/r_usbh0/basic/src/inc/r_usbh0_basic_local.h:

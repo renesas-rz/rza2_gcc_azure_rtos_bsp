@@ -1,0 +1,6 @@
+15:32:45 **** Incremental Build of configuration Release for project threadx ****
+make -r -j8 all 
+make: Nothing to be done for 'all'.
+
+15:32:46 Build Finished. 0 errors, 0 warnings. (took 216ms)
+

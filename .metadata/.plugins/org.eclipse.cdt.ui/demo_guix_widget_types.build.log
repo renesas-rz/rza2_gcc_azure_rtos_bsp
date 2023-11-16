@@ -1,0 +1,8 @@
+15:33:08 **** Incremental Build of configuration Release for project demo_guix_widget_types ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_guix_widget_types.elf"
+   text	   data	    bss	    dec	    hex	filename
+2427816	   7836	3939824	6375476	 614834	demo_guix_widget_types.elf
+
+15:33:09 Build Finished. 0 errors, 0 warnings. (took 307ms)
+

@@ -1,0 +1,8 @@
+15:31:22 **** Incremental Build of configuration Release for project demo_jpeg_codec_sample ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_jpeg_codec_sample.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 235084	   2668	2108612	2346364	 23cd7c	demo_jpeg_codec_sample.elf
+
+15:31:23 Build Finished. 0 errors, 0 warnings. (took 380ms)
+

@@ -48,7 +48,7 @@
     <Segment id="Device">
         <Setting id="Series" value="RZA"/>
         <Setting id="Group" value="RZA2M"/>
-        <Setting id="Board" value=""/>
+        <Setting id="Board" value="Custom User Board"/>
         <Setting id="PartNo" value="R7S921058"/>
         <Setting id="PinCount" value="324"/>
     </Segment>

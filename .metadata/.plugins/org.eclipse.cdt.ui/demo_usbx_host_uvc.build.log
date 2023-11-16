@@ -1,0 +1,8 @@
+15:32:37 **** Incremental Build of configuration Release for project demo_usbx_host_uvc ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_usbx_host_uvc.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 277452	   4028	1616464	1897944	 1cf5d8	demo_usbx_host_uvc.elf
+
+15:32:38 Build Finished. 0 errors, 0 warnings. (took 321ms)
+

@@ -1,0 +1,5 @@
+src/user_prog/cert/nx_azure_iot_cert.o: \
+ ../src/user_prog/cert/nx_azure_iot_cert.c \
+ ../src/user_prog/cert/nx_azure_iot_cert.h
+
+../src/user_prog/cert/nx_azure_iot_cert.h:

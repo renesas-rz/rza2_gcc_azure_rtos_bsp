@@ -1,0 +1,26 @@
+generate/sc_drivers/r_cbuffer/src/r_cbuffer.o: \
+ ../generate/sc_drivers/r_cbuffer/src/r_cbuffer.c \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/sc_drivers/r_cbuffer/inc/r_cbuffer.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_api.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_typedef.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_config.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/system/inc/driver.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_osless_drv_sc_cfg.h
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/sc_drivers/r_cbuffer/inc/r_cbuffer.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_api.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_typedef.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_config.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/system/inc/driver.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/sample_azure_iot_embedded_sdk_pnp/generate/os_abstraction/inc/r_os_abstraction_osless_drv_sc_cfg.h:

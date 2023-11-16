@@ -1,0 +1,32 @@
+generate/drivers/r_cpg/src/hld/r_cpg_drv_api.o: \
+ ../generate/drivers/r_cpg/src/hld/r_cpg_drv_api.c \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_link.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_lld_rza2m.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_devlink_wrapper.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/driver.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_hld_api.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_link.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_api.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_sc_cfg.h
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_link.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_lld_rza2m.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_devlink_wrapper.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/driver.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_hld_api.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_link.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_api.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/drivers/r_cpg/inc/r_cpg_drv_sc_cfg.h:

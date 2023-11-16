@@ -1,0 +1,8 @@
+15:30:59 **** Incremental Build of configuration Release for project demo_guix_washing_machine ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_guix_washing_machine.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 707636	   5660	3925808	4639104	 46c980	demo_guix_washing_machine.elf
+
+15:30:59 Build Finished. 0 errors, 0 warnings. (took 329ms)
+

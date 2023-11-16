@@ -1,0 +1,6 @@
+15:32:41 **** Incremental Build of configuration Release for project netxduo ****
+make -r -j8 all 
+make: Nothing to be done for 'all'.
+
+15:32:42 Build Finished. 0 errors, 0 warnings. (took 568ms)
+

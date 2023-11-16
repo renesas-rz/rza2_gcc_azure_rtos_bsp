@@ -1,0 +1,8 @@
+15:33:14 **** Incremental Build of configuration release for project demo_threadx ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_threadx.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 104340	   2660	 124128	 231128	  386d8	demo_threadx.elf
+
+15:33:14 Build Finished. 0 errors, 0 warnings. (took 257ms)
+

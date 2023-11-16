@@ -1,0 +1,20 @@
+src/renesas/hwsetup/octabus_setup/src/octabus_userconfig.o: \
+ ../src/renesas/hwsetup/octabus_setup/src/octabus_userconfig.c \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/configuration/r_startup_config.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/sc_drivers/r_octabus/inc/r_octabus_lld_rza2m_api.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/system/inc/driver.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/system/inc/r_typedefs.h \
+ C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/src/renesas/hwsetup/octabus_setup/inc/octabus_ram_rza2m.h
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/configuration/r_startup_config.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/sc_drivers/r_octabus/inc/r_octabus_lld_rza2m_api.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/system/inc/driver.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/generate/system/inc/r_typedefs.h:
+
+C:/work_git/rza2_gcc_azure_rtos_bsp/demo_netx_http/src/renesas/hwsetup/octabus_setup/inc/octabus_ram_rza2m.h:

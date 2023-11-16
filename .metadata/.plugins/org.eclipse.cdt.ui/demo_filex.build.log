@@ -1,0 +1,8 @@
+15:30:57 **** Incremental Build of configuration Release for project demo_filex ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_filex.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 163920	   2856	 140500	 307276	  4b04c	demo_filex.elf
+
+15:30:57 Build Finished. 0 errors, 0 warnings. (took 313ms)
+

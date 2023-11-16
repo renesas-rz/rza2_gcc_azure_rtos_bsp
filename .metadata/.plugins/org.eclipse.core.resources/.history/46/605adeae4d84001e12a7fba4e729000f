@@ -1,0 +1,44 @@
+src/user_prog/cert/nx_azure_iot_ciphersuites.o: \
+ ../src/user_prog/cert/nx_azure_iot_ciphersuites.c \
+ ../src/user_prog/cert/nx_azure_iot_ciphersuites.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_user.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_trace.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto_const.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_x509.h
+
+../src/user_prog/cert/nx_azure_iot_ciphersuites.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_user.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_trace.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_tls.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\crypto_libraries\nx_crypto_const.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\netxduo\src\nx_secure\nx_secure_x509.h:

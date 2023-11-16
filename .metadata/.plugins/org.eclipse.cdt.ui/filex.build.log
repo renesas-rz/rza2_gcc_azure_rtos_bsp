@@ -1,0 +1,6 @@
+15:32:38 **** Incremental Build of configuration Release for project filex ****
+make -r -j8 all 
+make: Nothing to be done for 'all'.
+
+15:32:38 Build Finished. 0 errors, 0 warnings. (took 264ms)
+

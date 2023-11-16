@@ -1,0 +1,20 @@
+src/user_prog/usbx_if/ux_utility_physical_address.o: \
+ ../src/user_prog/usbx_if/ux_utility_physical_address.c \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_api.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_port.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_utility.h \
+ c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_system.h
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_api.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\threadx\src\tx_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_port.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_utility.h:
+
+c:\work_git\rza2_gcc_azure_rtos_bsp\usbx\src\ux_system.h:

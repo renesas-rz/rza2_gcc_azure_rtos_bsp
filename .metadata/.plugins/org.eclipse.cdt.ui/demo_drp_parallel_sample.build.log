@@ -1,0 +1,8 @@
+15:30:55 **** Incremental Build of configuration Release for project demo_drp_parallel_sample ****
+make -r -j8 all 
+arm-none-eabi-size --format=berkeley "demo_drp_parallel_sample.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 157584	  67116	1662752	1887452	 1cccdc	demo_drp_parallel_sample.elf
+
+15:30:55 Build Finished. 0 errors, 0 warnings. (took 317ms)
+
