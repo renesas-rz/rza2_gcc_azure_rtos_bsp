@@ -1,8 +1,0 @@
-15:32:33 **** Incremental Build of configuration Release for project demo_threadx_blinky ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "demo_threadx_blinky.elf"
-   text	   data	    bss	    dec	    hex	filename
- 105928	   2668	 122576	 231172	  38704	demo_threadx_blinky.elf
-
-15:32:34 Build Finished. 0 errors, 0 warnings. (took 324ms)
-

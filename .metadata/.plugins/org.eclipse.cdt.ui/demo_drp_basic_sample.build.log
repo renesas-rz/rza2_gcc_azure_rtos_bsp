@@ -1,8 +1,0 @@
-15:30:52 **** Incremental Build of configuration Release for project demo_drp_basic_sample ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "demo_drp_basic_sample.elf"
-   text	   data	    bss	    dec	    hex	filename
- 157464	  67116	1662672	1887252	 1ccc14	demo_drp_basic_sample.elf
-
-15:30:52 Build Finished. 0 errors, 0 warnings. (took 309ms)
-

@@ -1,8 +1,0 @@
-15:32:34 **** Incremental Build of configuration Release for project demo_usbx_device_cdc_acm ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "demo_usbx_device_cdc_acm.elf"
-   text	   data	    bss	    dec	    hex	filename
- 147336	   2988	 747468	 897792	  db300	demo_usbx_device_cdc_acm.elf
-
-15:32:35 Build Finished. 0 errors, 0 warnings. (took 389ms)
-

@@ -1,6 +1,0 @@
-15:32:39 **** Incremental Build of configuration Release for project guix ****
-make -r -j8 all 
-make: Nothing to be done for 'all'.
-
-15:32:40 Build Finished. 0 errors, 0 warnings. (took 734ms)
-

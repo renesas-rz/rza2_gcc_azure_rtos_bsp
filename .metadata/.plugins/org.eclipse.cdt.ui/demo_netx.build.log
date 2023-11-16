@@ -1,8 +1,0 @@
-15:31:24 **** Incremental Build of configuration Release for project demo_netx ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "demo_netx.elf"
-   text	   data	    bss	    dec	    hex	filename
- 155672	  13048	 181792	 350512	  55930	demo_netx.elf
-
-15:31:24 Build Finished. 0 errors, 0 warnings. (took 322ms)
-

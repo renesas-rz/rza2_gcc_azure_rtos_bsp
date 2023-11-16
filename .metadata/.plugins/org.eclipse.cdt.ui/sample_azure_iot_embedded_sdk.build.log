@@ -1,8 +1,0 @@
-15:32:43 **** Incremental Build of configuration Release for project sample_azure_iot_embedded_sdk ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "sample_azure_iot_embedded_sdk.elf"
-   text	   data	    bss	    dec	    hex	filename
- 371668	  55196	 243540	 670404	  a3ac4	sample_azure_iot_embedded_sdk.elf
-
-15:32:43 Build Finished. 0 errors, 0 warnings. (took 314ms)
-

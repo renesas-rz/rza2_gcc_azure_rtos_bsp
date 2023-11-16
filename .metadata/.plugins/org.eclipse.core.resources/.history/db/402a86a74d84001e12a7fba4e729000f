@@ -1,5 +1,0 @@
-generate/compiler/asm/vector_mirrortable.o: \
- ../generate/compiler/asm/vector_mirrortable.asm \
- C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/os_abstraction/inc/r_os_private_vector.h
-
-C:/work_git/rza2_gcc_azure_rtos_bsp/demo_usbx_host_hid/generate/os_abstraction/inc/r_os_private_vector.h:

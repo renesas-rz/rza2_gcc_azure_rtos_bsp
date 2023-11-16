@@ -1,8 +1,0 @@
-15:32:36 **** Incremental Build of configuration Release for project demo_usbx_host_mass ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "demo_usbx_host_mass.elf"
-   text	   data	    bss	    dec	    hex	filename
- 195404	   3008	 238916	 437328	  6ac50	demo_usbx_host_mass.elf
-
-15:32:36 Build Finished. 0 errors, 0 warnings. (took 325ms)
-

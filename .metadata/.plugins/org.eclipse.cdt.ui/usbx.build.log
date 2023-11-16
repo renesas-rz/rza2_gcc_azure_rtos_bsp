@@ -1,6 +1,0 @@
-15:32:46 **** Incremental Build of configuration Release for project usbx ****
-make -r -j8 all 
-make: Nothing to be done for 'all'.
-
-15:32:47 Build Finished. 0 errors, 0 warnings. (took 520ms)
-

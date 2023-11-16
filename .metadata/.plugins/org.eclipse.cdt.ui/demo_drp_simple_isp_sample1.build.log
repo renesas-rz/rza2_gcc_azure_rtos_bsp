@@ -1,8 +1,0 @@
-15:30:56 **** Incremental Build of configuration Release for project demo_drp_simple_isp_sample1 ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "demo_drp_simple_isp_sample1.elf"
-   text	   data	    bss	    dec	    hex	filename
- 725252	   7288	2277476	3010016	 2dede0	demo_drp_simple_isp_sample1.elf
-
-15:30:56 Build Finished. 0 errors, 0 warnings. (took 310ms)
-

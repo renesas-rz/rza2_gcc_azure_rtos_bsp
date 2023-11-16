@@ -1,8 +1,0 @@
-15:32:45 **** Incremental Build of configuration Release for project sample_pnp_temperature_controller ****
-make -r -j8 all 
-arm-none-eabi-size --format=berkeley "sample_pnp_temperature_controller.elf"
-   text	   data	    bss	    dec	    hex	filename
- 436228	  55156	 235860	 727244	  b18cc	sample_pnp_temperature_controller.elf
-
-15:32:45 Build Finished. 0 errors, 0 warnings. (took 374ms)
-
