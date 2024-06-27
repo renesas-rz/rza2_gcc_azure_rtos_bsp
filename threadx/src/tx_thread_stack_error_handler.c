@@ -26,7 +26,7 @@
 /* Include necessary system files.  */
 
 #include "tx_api.h"
-#if defined(TX_MISRA_ENABLE) || defined(TX_ENABLE_STACK_CHECKING)
+#if defined(TX_MISRA_ENABLE) || defined(TX_ENABLE_STACK_CHECKING) || defined(TX_PORT_THREAD_STACK_ERROR_HANDLING)
 #include "tx_thread.h"
 
 
@@ -35,7 +35,7 @@
 /*  FUNCTION                                               RELEASE        */
 /*                                                                        */
 /*    _tx_thread_stack_error_handler                      PORTABLE C      */
-/*                                                           6.1.1        */
+/*                                                           6.1.9        */
 /*  AUTHOR                                                                */
 /*                                                                        */
 /*    William E. Lamie, Microsoft Corporation                             */
@@ -72,6 +72,14 @@
 /*  10-16-2020     William E. Lamie         Modified comment(s),          */
 /*                                            fixed link issue,           */
 /*                                            resulting in version 6.1.1  */
+/*  06-02-2021     William E. Lamie         Modified comment(s),          */
+/*                                            fixed link issue, added     */
+/*                                            conditional compilation     */
+/*                                            for ARMv8-M (Cortex M23/33) */
+/*                                            resulting in version 6.1.7  */
+/*  10-15-2021     Yuxin Zhou               Modified comment(s), improved */
+/*                                            stack check error handling, */
+/*                                            resulting in version 6.1.9  */
 /*                                                                        */
 /**************************************************************************/
 VOID  _tx_thread_stack_error_handler(TX_THREAD *thread_ptr)
@@ -79,7 +87,7 @@ VOID  _tx_thread_stack_error_handler(TX_THREAD *thread_ptr)
 
 TX_INTERRUPT_SAVE_AREA
 
-#ifdef TX_ENABLE_STACK_CHECKING
+#if defined(TX_ENABLE_STACK_CHECKING) || defined(TX_PORT_THREAD_STACK_ERROR_HANDLING)
 
     /* Disable interrupts.  */
     TX_DISABLE
@@ -103,11 +111,10 @@ TX_INTERRUPT_SAVE_AREA
 
         /* Disable interrupts.  */
         TX_DISABLE
-        
+
         /* Restore interrupts.  */
         TX_RESTORE
     }
 #endif
 }
-#endif /* TX_MISRA_ENABLE */
-
+#endif

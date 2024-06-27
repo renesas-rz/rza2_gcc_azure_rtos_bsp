@@ -36,7 +36,7 @@
 /*  FUNCTION                                               RELEASE        */
 /*                                                                        */
 /*    _tx_thread_create                                   PORTABLE C      */
-/*                                                           6.1          */
+/*                                                           6.3.0        */
 /*  AUTHOR                                                                */
 /*                                                                        */
 /*    William E. Lamie, Microsoft Corporation                             */
@@ -79,11 +79,19 @@
 /*                                                                        */
 /*    DATE              NAME                      DESCRIPTION             */
 /*                                                                        */
-/*  05-19-2020     William E. Lamie         Initial Version 6.0           */
-/*  09-30-2020     William E. Lamie         Modified comment(s), and      */
+/*  05-19-2020      William E. Lamie        Initial Version 6.0           */
+/*  09-30-2020      William E. Lamie        Modified comment(s), and      */
 /*                                            changed stack calculations  */
 /*                                            to use ALIGN_TYPE integers, */
 /*                                            resulting in version 6.1    */
+/*  06-02-2021      William E. Lamie        Modified comment(s), and      */
+/*                                            supported TX_MISRA_ENABLE,  */
+/*  08-02-2021      Scott Larson            Removed unneeded cast,        */
+/*                                            resulting in version 6.1.8  */
+/*  10-31-2023      Xiuwen Cai              Modified comment(s),          */
+/*                                            added option for random     */
+/*                                            number stack filling,       */
+/*                                            resulting in version 6.3.0  */
 /*                                                                        */
 /**************************************************************************/
 UINT  _tx_thread_create(TX_THREAD *thread_ptr, CHAR *name_ptr, VOID (*entry_function)(ULONG id), ULONG entry_input,
@@ -105,6 +113,17 @@ ALIGN_TYPE              updated_stack_start;
 #endif
 
 #ifndef TX_DISABLE_STACK_FILLING
+#if defined(TX_ENABLE_RANDOM_NUMBER_STACK_FILLING) && defined(TX_ENABLE_STACK_CHECKING)
+
+    /* Initialize the stack fill value to a 8-bit random value.  */
+    thread_ptr -> tx_thread_stack_fill_value = ((ULONG) TX_RAND()) & 0xFFUL;
+
+    /* Duplicate the random value in each of the 4 bytes of the stack fill value.  */
+    thread_ptr -> tx_thread_stack_fill_value = thread_ptr -> tx_thread_stack_fill_value |
+                    (thread_ptr -> tx_thread_stack_fill_value << 8) |
+                    (thread_ptr -> tx_thread_stack_fill_value << 16) |
+                    (thread_ptr -> tx_thread_stack_fill_value << 24);
+#endif
 
     /* Set the thread stack to a pattern prior to creating the initial
        stack frame.  This pattern is used by the stack checking routines
@@ -114,25 +133,33 @@ ALIGN_TYPE              updated_stack_start;
 
 #ifdef TX_ENABLE_STACK_CHECKING
 
-    /* Ensure that there are two ULONG of 0xEF patterns at the top and 
+    /* Ensure that there are two ULONG of 0xEF patterns at the top and
        bottom of the thread's stack. This will be used to check for stack
        overflow conditions during run-time.  */
     stack_size =  ((stack_size/(sizeof(ULONG))) * (sizeof(ULONG))) - (sizeof(ULONG));
 
     /* Ensure the starting stack address is evenly aligned.  */
+#ifdef TX_MISRA_ENABLE
+    new_stack_start = TX_POINTER_TO_ULONG_CONVERT(stack_start);
+#else
     new_stack_start =  TX_POINTER_TO_ALIGN_TYPE_CONVERT(stack_start);
-    updated_stack_start =  ((((ULONG) new_stack_start) + ((sizeof(ULONG)) - ((ULONG) 1)) ) & (~((sizeof(ULONG)) - ((ULONG) 1))));
+#endif /* TX_MISRA_ENABLE */
+    updated_stack_start =  (((new_stack_start) + ((sizeof(ULONG)) - ((ULONG) 1)) ) & (~((sizeof(ULONG)) - ((ULONG) 1))));
 
     /* Determine if the starting stack address is different.  */
     if (new_stack_start != updated_stack_start)
     {
-    
+
         /* Yes, subtract another ULONG from the size to avoid going past the stack area.  */
         stack_size =  stack_size - (sizeof(ULONG));
     }
 
     /* Update the starting stack pointer.  */
+#ifdef TX_MISRA_ENABLE
+    stack_start = TX_ULONG_TO_POINTER_CONVERT(updated_stack_start);
+#else
     stack_start =  TX_ALIGN_TYPE_TO_POINTER_CONVERT(updated_stack_start);
+#endif /* TX_MISRA_ENABLE */
 #endif
 
     /* Prepare the thread control block prior to placing it on the created
@@ -192,7 +219,7 @@ ALIGN_TYPE              updated_stack_start;
     /* Perform any additional thread setup activities for tool or user purpose.  */
     TX_THREAD_CREATE_INTERNAL_EXTENSION(thread_ptr)
 
-    /* Call the target specific stack frame building routine to build the 
+    /* Call the target specific stack frame building routine to build the
        thread's initial stack and to setup the actual stack pointer in the
        control block.  */
     _tx_thread_stack_build(thread_ptr, _tx_thread_shell_entry);
@@ -234,7 +261,7 @@ ALIGN_TYPE              updated_stack_start;
         thread_ptr -> tx_thread_created_previous =  previous_thread;
         thread_ptr -> tx_thread_created_next =      next_thread;
     }
-    
+
     /* Increment the thread created count.  */
     _tx_thread_created_count++;
 
@@ -268,22 +295,22 @@ ALIGN_TYPE              updated_stack_start;
             /* Yes, this create call was made from initialization.  */
 
             /* Pickup the current thread execute pointer, which corresponds to the
-               highest priority thread ready to execute.  Interrupt lockout is 
-               not required, since interrupts are assumed to be disabled during 
+               highest priority thread ready to execute.  Interrupt lockout is
+               not required, since interrupts are assumed to be disabled during
                initialization.  */
             saved_thread_ptr =  _tx_thread_execute_ptr;
 
             /* Determine if there is thread ready for execution.  */
             if (saved_thread_ptr != TX_NULL)
             {
-                
+
                 /* Yes, a thread is ready for execution when initialization completes.  */
 
                 /* Save the current preemption-threshold.  */
                 saved_threshold =  saved_thread_ptr -> tx_thread_preempt_threshold;
 
-                /* For initialization, temporarily set the preemption-threshold to the 
-                   priority level to make sure the highest-priority thread runs once 
+                /* For initialization, temporarily set the preemption-threshold to the
+                   priority level to make sure the highest-priority thread runs once
                    initialization is complete.  */
                 saved_thread_ptr -> tx_thread_preempt_threshold =  saved_thread_ptr -> tx_thread_priority;
             }
@@ -316,7 +343,7 @@ ALIGN_TYPE              updated_stack_start;
         /* Call the resume thread function to make this thread ready.  */
         _tx_thread_system_resume(thread_ptr);
 #endif
- 
+
         /* Determine if the thread's preemption-threshold needs to be restored.  */
         if (saved_thread_ptr != TX_NULL)
         {
